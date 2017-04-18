@@ -1,0 +1,55 @@
+{
+    "name": "Appearance",
+    "description": "Appearance",
+    "keyword": ["Appearance"],
+    "version": "0.0.1",
+    "author": "Fazri Maulana",
+    "category": ["Appearance"],
+    "web": "facebook.com/fazri.maulana1",
+    "repository": "github.com",
+    "sequence": "1",
+    "license": "MIT",
+    "permission":[
+        "can_see_appearance_menus",
+        "can_add_appearance_menus",
+        "can_edit_appearance_menus",
+        "can_delete_appearance_menus",
+        "can_see_appearance_themes",
+        "can_see_appearance_menu"
+    ],
+    "menu": {
+        "appearance_parent": {
+            "menu_id":"dashboard.appearance",
+            "parent_id":"",
+            "name":"Appearance",
+            "href":"#",
+            "target":"",
+            "title":"Appearance Management",
+            "icon":"fa fa-paint-brush",
+            "permission":"can_see_appearance_menu",
+            "sequence":"94"
+        },
+        "appearance_index": {
+            "menu_id":"dashboard.appearance.index",
+            "parent_id":"dashboard.appearance",
+            "name":"Themes",
+            "href":"dashboard/themes",
+            "target":"#",
+            "title":"Appearance Management",
+            "icon":"fa fa-puzzle",
+            "permission":"can_see_appearance_themes",
+            "sequence":"1"
+        },
+        "appearance_menus": {
+            "menu_id":"dashboard.appearance.menus",
+            "parent_id":"dashboard.appearance",
+            "name":"Menus",
+            "href":"dashboard/menus",
+            "target":"#",
+            "title":"Appearance Management",
+            "icon":"fa fa-puzzle",
+            "permission":"can_see_appearance_menus",
+            "sequence":"1"
+        }
+    }
+}

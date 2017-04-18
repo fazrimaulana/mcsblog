@@ -1,0 +1,11 @@
+Langkah - langkah install
+
+1. clone dari github
+2. composer update
+3. setting database file .env terhubung ke database mcsblog
+4. create database mcsblog
+5. buka file app.php di folder config, jadikan comment terlebih dahulu provider Modules\ModuleServiceProvider::class,
+6. lalu php artisan migrate
+7. lalu php artisan db:seed
+8. aktifkan kembali provider Modules\ModuleServiceProvider::class pada file app.php di folder config
+9. selesai ...

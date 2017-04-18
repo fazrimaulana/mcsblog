@@ -1,0 +1,47 @@
+{
+	"name": "Module Management",
+    "description": "Core module",
+    "keyword": ["module","system","core"],
+	"version": "0.0.1",
+	"author": "Fazri Maulana",
+	"category": ["module","system","core"],
+	"web": "facebook.com/fazri.maulana1",
+	"repository": "github.com",
+	"sequence": "1",
+    "license": "MIT",
+    "permission":[
+    	"can_install_module",
+    	"can_see_list_module",
+    	"can_uninstall_module",
+        "can_see_detail_module",
+        "can_see_module_menu",
+        "can_see_module_index",
+        "can_see_module",
+        "can_active_module",
+        "can_inactive_module"
+    ],
+    "menu": {
+    	"module_parent": {
+            "menu_id":"dashboard.module",
+            "parent_id":"",
+            "name":"Module",
+            "href":"#",
+            "target":"",
+            "title":"Module Management",
+            "icon":"fa fa-puzzle-piece",
+            "permission":"can_see_module_menu",
+            "sequence":"99"
+    	},
+        "module_index": {
+            "menu_id":"dashboard.module.index",
+            "parent_id":"dashboard.module",
+            "name":"Module",
+            "href":"dashboard/modules",
+            "target":"#",
+            "title":"Module Management",
+            "icon":"fa fa-puzzle",
+            "permission":"can_see_module_index",
+            "sequence":"1"
+        }
+    }
+}

@@ -1,0 +1,32 @@
+{
+    "name": "Comments",
+    "description": "Comments",
+    "keyword": ["Comments"],
+    "version": "0.0.1",
+    "author": "Fazri Maulana",
+    "category": ["Comments"],
+    "web": "facebook.com/fazri.maulana1",
+    "repository": "github.com",
+    "sequence": "1",
+    "license": "MIT",
+    "permission":[
+        "can_see_comments",
+        "can_edit_comments",
+        "can_reply_comments",
+        "can_edit_comments",
+        "can_see_comments_menu"
+    ],
+    "menu": {
+        "comments_parent": {
+            "menu_id":"dashboard.comments",
+            "parent_id":"",
+            "name":"Comments",
+            "href":"dashboard/comments",
+            "target":"",
+            "title":"Comments Management",
+            "icon":"fa fa-comment",
+            "permission":"can_see_comments_menu",
+            "sequence":"93"
+        }
+    }
+}

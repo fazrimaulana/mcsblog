@@ -1,0 +1,54 @@
+{
+    "name": "Media",
+    "description": "Media",
+    "keyword": ["Media"],
+    "version": "0.0.1",
+    "author": "Fazri Maulana",
+    "category": ["Media"],
+    "web": "facebook.com/fazri.maulana1",
+    "repository": "github.com",
+    "sequence": "1",
+    "license": "MIT",
+    "permission":[
+        "can_see_media_index",
+        "can_see_media_menu",
+        "can_see_media",
+        "can_add_media",
+        "can_edit_media"
+    ],
+    "menu": {
+        "media_parent": {
+            "menu_id":"dashboard.media",
+            "parent_id":"",
+            "name":"Media",
+            "href":"#",
+            "target":"",
+            "title":"Media Management",
+            "icon":"fa fa-image",
+            "permission":"can_see_media_menu",
+            "sequence":"91"
+        },
+        "media_index": {
+            "menu_id":"dashboard.media.index",
+            "parent_id":"dashboard.media",
+            "name":"Library",
+            "href":"dashboard/media",
+            "target":"#",
+            "title":"Media Management",
+            "icon":"fa fa-puzzle",
+            "permission":"can_see_media_index",
+            "sequence":"1"
+        },
+        "media_add": {
+            "menu_id":"dashboard.media.add",
+            "parent_id":"dashboard.media",
+            "name":"Add New",
+            "href":"dashboard/media/add",
+            "target":"#",
+            "title":"Media Management",
+            "icon":"fa fa-puzzle",
+            "permission":"can_add_media",
+            "sequence":"1"
+        }
+    }
+}

@@ -1,0 +1,87 @@
+{
+    "name": "Posts",
+    "description": "Posts",
+    "keyword": ["Posts"],
+    "version": "0.0.1",
+    "author": "Fazri Maulana",
+    "category": ["Posts"],
+    "web": "facebook.com/fazri.maulana1",
+    "repository": "github.com",
+    "sequence": "1",
+    "license": "MIT",
+    "permission":[
+        "can_see_categories",
+        "can_add_categories",
+        "can_edit_categories",
+        "can_delete_categories",
+        "can_see_tags",
+        "can_add_tags",
+        "can_edit_tags",
+        "can_delete_tags",
+        "can_see_posts",
+        "can_add_posts",
+        "can_edit_posts",
+        "can_delete_posts",
+        "can_see_posts_menu",
+        "can_see_posts_index",
+        "can_see_categories_index",
+        "can_see_tags_index"
+    ],
+    "menu": {
+        "posts_parent": {
+            "menu_id":"dashboard.posts",
+            "parent_id":"",
+            "name":"Posts",
+            "href":"#",
+            "target":"",
+            "title":"Posts Management",
+            "icon":"fa fa-thumb-tack",
+            "permission":"can_see_posts_menu",
+            "sequence":"90"
+        },
+        "posts_index": {
+            "menu_id":"dashboard.posts.index",
+            "parent_id":"dashboard.posts",
+            "name":"All Posts",
+            "href":"dashboard/posts",
+            "target":"#",
+            "title":"Posts Management",
+            "icon":"fa fa-puzzle",
+            "permission":"can_see_posts_index",
+            "sequence":"1"
+        },
+        "posts_add": {
+            "menu_id":"dashboard.posts.add",
+            "parent_id":"dashboard.posts",
+            "name":"Add New",
+            "href":"dashboard/posts/add",
+            "target":"#",
+            "title":"Posts Management",
+            "icon":"fa fa-puzzle",
+            "permission":"can_add_posts",
+            "sequence":"1"
+        },
+        "categories_index": {
+            "menu_id":"dashboard.categories.index",
+            "parent_id":"dashboard.posts",
+            "name":"Categories",
+            "href":"dashboard/categories",
+            "target":"#",
+            "title":"Posts Management",
+            "icon":"fa fa-puzzle",
+            "permission":"can_see_categories_index",
+            "sequence":"1"
+        },
+        "tags_index": {
+            "menu_id":"dashboard.tags.index",
+            "parent_id":"dashboard.posts",
+            "name":"Tags",
+            "href":"dashboard/tags",
+            "target":"#",
+            "title":"Posts Management",
+            "icon":"fa fa-puzzle",
+            "permission":"can_see_tags_index",
+            "sequence":"1"
+        }
+    }
+}

@@ -1,0 +1,61 @@
+{
+    "name": "Role And Permission",
+    "description": "Role And Permission module",
+    "keyword": ["Role And Permission"],
+    "version": "0.0.1",
+    "author": "Fazri Maulana",
+    "category": ["Role And Permission"],
+    "web": "facebook.com/fazri.maulana1",
+    "repository": "github.com",
+    "sequence": "1",
+    "license": "MIT",
+    "permission":[
+        "can_see_role",
+        "can_add_role",
+        "can_edit_role",
+        "can_delete_role",
+        "can_see_permission",
+        "can_add_permission",
+        "can_edit_permission",
+        "can_delete_permission",
+        "can_add_role_users",
+        "can_add_role_permissions",
+        "can_see_module_menu",
+        "can_see_module_index"
+    ],
+    "menu": {
+        "role_parent": {
+            "menu_id":"dashboard.setting.role",
+            "parent_id":"",
+            "name":"Role And Permission",
+            "href":"#",
+            "target":"",
+            "title":"Role And Permission Management",
+            "icon":"fa fa-lock",
+            "permission":"can_see_module_menu",
+            "sequence":"98"
+        },
+        "role_index": {
+            "menu_id":"dashboard.setting.role.index",
+            "parent_id":"dashboard.setting.role",
+            "name":"Role",
+            "href":"dashboard/settings/role",
+            "target":"#",
+            "title":"Role Management",
+            "icon":"fa fa-puzzle",
+            "permission":"can_see_module_index",
+            "sequence":"1"
+        },
+        "permission_index": {
+            "menu_id":"dashboard.setting.permission.index",
+            "parent_id":"dashboard.setting.role",
+            "name":"Permission",
+            "href":"dashboard/settings/permission",
+            "target":"#",
+            "title":"Permission Management",
+            "icon":"fa fa-puzzle",
+            "permission":"can_see_module_index",
+            "sequence":"1"
+        }
+    }
+}

@@ -1,0 +1,55 @@
+{
+    "name": "Pages",
+    "description": "Pages",
+    "keyword": ["Pages"],
+    "version": "0.0.1",
+    "author": "Fazri Maulana",
+    "category": ["Pages"],
+    "web": "facebook.com/fazri.maulana1",
+    "repository": "github.com",
+    "sequence": "1",
+    "license": "MIT",
+    "permission":[
+        "can_see_pages_menu",
+        "can_see_pages_index",
+        "can_see_pages",
+        "can_add_pages",
+        "can_edit_pages",
+        "can_delete_pages"
+    ],
+    "menu": {
+        "pages_parent": {
+            "menu_id":"dashboard.pages",
+            "parent_id":"",
+            "name":"Pages",
+            "href":"#",
+            "target":"",
+            "title":"Pages Management",
+            "icon":"fa fa-thumb-tack",
+            "permission":"can_see_pages_menu",
+            "sequence":"92"
+        },
+        "pages_index": {
+            "menu_id":"dashboard.pages.index",
+            "parent_id":"dashboard.pages",
+            "name":"All Pages",
+            "href":"dashboard/pages",
+            "target":"#",
+            "title":"Pages Management",
+            "icon":"fa fa-puzzle",
+            "permission":"can_see_pages_index",
+            "sequence":"1"
+        },
+        "posts_add": {
+            "menu_id":"dashboard.pages.add",
+            "parent_id":"dashboard.pages",
+            "name":"Add New",
+            "href":"dashboard/pages/add",
+            "target":"#",
+            "title":"Pages Management",
+            "icon":"fa fa-puzzle",
+            "permission":"can_add_pages",
+            "sequence":"1"
+        }
+    }
+}

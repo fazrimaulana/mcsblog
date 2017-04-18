@@ -1,0 +1,68 @@
+{
+    "name": "Users",
+    "description": "Users",
+    "keyword": ["Users"],
+    "version": "0.0.1",
+    "author": "Fazri Maulana",
+    "category": ["Users"],
+    "web": "facebook.com/fazri.maulana1",
+    "repository": "github.com",
+    "sequence": "1",
+    "license": "MIT",
+    "permission":[
+        "can_see_users_menu",
+        "can_see_users_index",
+        "can_see_users",
+        "can_add_users",
+        "can_edit_users",
+        "can_edit_users_password",
+        "can_delete_users",
+        "can_edit_users_apitoken"
+    ],
+    "menu": {
+        "users_parent": {
+            "menu_id":"dashboard.users",
+            "parent_id":"",
+            "name":"Users",
+            "href":"#",
+            "target":"",
+            "title":"Users Management",
+            "icon":"fa fa-user-o",
+            "permission":"can_see_users_menu",
+            "sequence":"95"
+        },
+        "users_index": {
+            "menu_id":"dashboard.users.index",
+            "parent_id":"dashboard.users",
+            "name":"All Users",
+            "href":"dashboard/users",
+            "target":"#",
+            "title":"Users Management",
+            "icon":"fa fa-puzzle",
+            "permission":"can_see_users_index",
+            "sequence":"1"
+        },
+        "users_add": {
+            "menu_id":"dashboard.users.add",
+            "parent_id":"dashboard.users",
+            "name":"Add New",
+            "href":"dashboard/users/add",
+            "target":"#",
+            "title":"Users Management",
+            "icon":"fa fa-puzzle",
+            "permission":"can_add_users",
+            "sequence":"1"
+        },
+        "users_profile": {
+            "menu_id":"dashboard.users.profile",
+            "parent_id":"dashboard.users",
+            "name":"Your Profile",
+            "href":"dashboard/users/profile",
+            "target":"#",
+            "title":"Users Management",
+            "icon":"fa fa-puzzle",
+            "permission":"can_see_users",
+            "sequence":"1"
+        }
+    }
+}

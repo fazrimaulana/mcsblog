@@ -1,0 +1,42 @@
+{
+    "name": "Settings",
+    "description": "Settings",
+    "keyword": ["Settings"],
+    "version": "0.0.1",
+    "author": "Fazri Maulana",
+    "category": ["Settings"],
+    "web": "facebook.com/fazri.maulana1",
+    "repository": "github.com",
+    "sequence": "1",
+    "license": "MIT",
+    "permission":[
+        "can_see_settings_menu",
+        "can_see_settings_index",
+        "can_see_settings",
+        "can_chenge_settings_general"
+    ],
+    "menu": {
+        "settings_parent": {
+            "menu_id":"dashboard.settings",
+            "parent_id":"",
+            "name":"Settings",
+            "href":"#",
+            "target":"",
+            "title":"Settings Management",
+            "icon":"fa fa-cog",
+            "permission":"can_see_settings_menu",
+            "sequence":"96"
+        },
+        "settings_index": {
+            "menu_id":"dashboard.settings.index",
+            "parent_id":"dashboard.settings",
+            "name":"General",
+            "href":"dashboard/settings/general",
+            "target":"#",
+            "title":"Users Management",
+            "icon":"fa fa-puzzle",
+            "permission":"can_see_settings_index",
+            "sequence":"1"
+        }
+    }
+}
