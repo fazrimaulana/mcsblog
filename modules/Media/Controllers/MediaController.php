@@ -9,6 +9,7 @@ use Modules\Media\Models\Media;
 use Modules\Media\Models\Mediameta;
 
 use Auth;
+use File;
 
 class MediaController extends Controller
 {
@@ -98,7 +99,7 @@ class MediaController extends Controller
         }
 	}
 
-	public function getData(Media $media)
+	public function getData(Media $media, Request $request)
 	{
 		$method_permission = "can_edit_media";
 		if(Auth::user()->hasRole('root') || Auth::user()->can($method_permission) || Auth::user()->id==$media->user_id ){
@@ -127,6 +128,21 @@ class MediaController extends Controller
 					"alt" => $request->alt,
 					"description" => $request->description
 				]);
+
+			return redirect('/dashboard/media');
+
+        }else{
+            return view('404');
+        }
+	}
+
+	public function delete(Media $media)
+	{
+		$method_permission = "can_delete_media";
+		if(Auth::user()->hasRole('root') || Auth::user()->can($method_permission) || Auth::user()->id==$media->user_id ){
+
+			File::delete($media->url);
+			$media->delete();
 
 			return redirect('/dashboard/media');
 

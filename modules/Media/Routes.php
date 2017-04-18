@@ -30,6 +30,11 @@ Route::group(['middleware'=>['web', 'auth'],'prefix' => 'dashboard'], function()
 			'uses' => 'Modules\Media\Controllers\MediaController@update'
 		]);
 
+		Route::post('/{media}/delete', [
+			'as' => 'dashboard.media.delete', 
+			'uses' => 'Modules\Media\Controllers\MediaController@delete'
+		]);
+
 	});
 
 });
