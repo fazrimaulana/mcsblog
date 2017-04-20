@@ -1,3 +1,12 @@
+@php
+    
+    use Modules\Settings\Models\Setting;
+
+    $title_dashboard = Setting::where('setting_name', 'site_title')->first(); 
+
+@endphp
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +21,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Admin Panel</title>
+    <title>{{ Route::currentRouteName() }}-{{ $title_dashboard->setting_value }}</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="{{ url('/backend/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -129,13 +138,13 @@
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="{{ route('logout') }}"
+                                            <a href="{{ url('/logoutUser') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                                 <p><i class="fa fa-sign-out" aria-hidden="true"></i> Log Out</p>
                                             </a>
 
-                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            <form id="logout-form" action="{{ url('/logoutUser') }}" method="POST" style="display: none;">
                                                 {{ csrf_field() }}
                                             </form>
                                         </li>

@@ -44,6 +44,38 @@
 
                 </div>
 
+                <div class="col-md-6 col-sm-6 col-xs-6">
+                    
+                    <div class="content-ui-element">
+                        <div class="panel-custom">
+                            <div class="heading-1">
+                                <h4>Quick Draft</h4>
+                            </div>
+                            <div class="panel-body-custom">
+                                    
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <input type="text" name="title" class="form-control" id="title" placeholder="Title">  
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <textarea class="form-control" name="description" id="description" placeholder="What's on your mind?"></textarea>
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <button type="submit" class="btn btn-sm btn-primary">Save Draft</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--END OF .CONTENT-USER-PROFILE-->
+
+                </div>
+
             </div>
 
         </div>

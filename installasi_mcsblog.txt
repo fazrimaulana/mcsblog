@@ -1,11 +1,25 @@
 Langkah - langkah install
 
 1. clone dari github
+
 2. composer update
+
 3. setting database file .env terhubung ke database mcsblog
+
 4. create database mcsblog
-5. buka file app.php di folder config, jadikan comment terlebih dahulu provider Modules\ModuleServiceProvider::class,
+
+5. buka file app.php di folder config, jadikan comment terlebih dahulu provider 
+	Modules\ModuleServiceProvider::class,
+
 6. lalu php artisan migrate
+
 7. lalu php artisan db:seed
+
 8. aktifkan kembali provider Modules\ModuleServiceProvider::class pada file app.php di folder config
-9. selesai ...
+
+9. setting relationship pada folder vendor\zizaco\entrust\src\Entrust\Traits\EntrustRoleTrait.php pada 
+   method users menjadi :
+
+	return $this->belongsToMany(Config::get('auth.providers.users.model'), Config::get('entrust.role_user_table'),Config::get('entrust.role_foreign_key'),Config::get('entrust.user_foreign_key'));
+
+10. selesai ...

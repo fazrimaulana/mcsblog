@@ -13,10 +13,25 @@
 
                     
 
-Route::get('/', function () {
+Route::get(Modules\Settings\Models\Setting::getUrlHome('site_url'), function () {
     return view('welcome');
 });
 
 Auth::routes();
 
 Route::get(Modules\Settings\Models\Setting::getUrlHome('home_url'), [ 'as' => 'home.dashboard', 'uses' => 'HomeController@index']);
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
+Route::post('/logoutUser', function(Request $request){
+
+		Auth::guard()->logout();
+
+        $request->session()->flush();
+
+        $request->session()->regenerate();
+
+        return redirect(\Modules\Settings\Models\Setting::getUrlHome('site_url'));
+
+});

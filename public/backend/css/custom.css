@@ -1602,9 +1602,12 @@ html, body, .container {
       border: 3px dashed #808B9C;
       color: #808B9C; }
   .content-gallery .gallery .body-gallery .image {
-    margin-bottom: 20px; }
+    margin-bottom: 20px;
+    text-align: center;
+    padding: 0px 10px; }
     .content-gallery .gallery .body-gallery .image img {
-      width: 100%; }
+      width: 205px;
+      height: 205px; }
 
 .eror h2, .eror h4, .eror p {
   color: #eaeaea; }
