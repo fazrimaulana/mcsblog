@@ -12,6 +12,7 @@ use Modules\Pages\Models\Category;
 use Modules\Pages\Models\Tag;
 use Modules\Pages\Models\Post;
 use App\User;
+use Modules\Media\Models\Media;
 
 use Illuminate\Validation\Rule;
 
@@ -52,10 +53,12 @@ class PageController extends Controller
 			$categories = Category::all();
 			$tags = Tag::pluck('name');
 			$parentCategories = Category::where('parent', 0)->get();
+			$medias = Media::all();
             return view('Pages::add',[
             		"categories" => $categories,
             		"tags" => $tags,
-            		"parentCategories" => $parentCategories
+            		"parentCategories" => $parentCategories,
+            		"medias" => $medias
             	]);
 
         }else{
@@ -157,11 +160,13 @@ class PageController extends Controller
 			$categories = Category::all();
 			$tags = Tag::all();
 			$parentCategories = Category::where('parent', 0)->get();
+			$medias = Media::all();
 			return view('Pages::edit',[
 					"post" => $post,
 					"categories" => $categories,
 					"tags" => $tags,
-					"parentCategories" => $parentCategories
+					"parentCategories" => $parentCategories,
+					"medias" => $medias
 				]);
 
         }else{

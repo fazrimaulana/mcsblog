@@ -12,6 +12,7 @@ use Modules\Posts\Models\Category;
 use Modules\Posts\Models\Tag;
 use Modules\Posts\Models\Post;
 use App\User;
+use Modules\Media\Models\Media;
 
 use Illuminate\Validation\Rule;
 
@@ -31,7 +32,6 @@ class PostController extends Controller
 			$postCount = Post::where('type', 'post')->get();
 			$categories = Category::all();
 			$users = User::all();
-
             return view('Posts::posts.index',[
             		"posts" => $posts,
             		"postCount" => $postCount,
@@ -52,10 +52,12 @@ class PostController extends Controller
 			$categories = Category::all();
 			$tags = Tag::pluck('name');
 			$parentCategories = Category::where('parent', 0)->get();
+			$medias = Media::all();
             return view('Posts::posts.add',[
             		"categories" => $categories,
             		"tags" => $tags,
-            		"parentCategories" => $parentCategories
+            		"parentCategories" => $parentCategories,
+            		"medias" => $medias
             	]);
 
         }else{
@@ -158,11 +160,13 @@ class PostController extends Controller
 			$categories = Category::all();
 			$tags = Tag::pluck('name');
 			$parentCategories = Category::where('parent', 0)->get();
+			$medias = Media::all();
 			return view('Posts::posts.edit',[
 					"post" => $post,
 					"categories" => $categories,
 					"tags" => $tags,
-					"parentCategories" => $parentCategories
+					"parentCategories" => $parentCategories,
+					"medias" => $medias
 				]);
 
         }else{

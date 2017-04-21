@@ -31,6 +31,9 @@
                         <span style="color: red;">{{ $errors->first('title') }}</span>
                     @endif
                 </div><!--END OF TITLE-->
+
+                <a href="#" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#addMedia" data-backdrop="static">Add Media</a><br /><br />
+
                 <textarea name="content" class="form-control" id="content"></textarea>
                 @if($errors->has('content'))
                     <span style="color: red;">{{ $errors->first('content') }}</span>
@@ -176,6 +179,33 @@
     </div>
     <!-- /#page-content-wrapper -->
 
+
+    <!-- Modal -->
+<div class="modal fade" id="addMedia" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Tambah Media</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+            @foreach($medias as $media)
+                <div class="col-sm-2">
+                    <img src="{{ url($media->url) }}" data-id="{{ $media->id }}" class="img-responsive img-thumbnail media" width="200" height="auto">
+                </div>
+            @endforeach
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" id="tombol" class="btn btn-primary" >Tambah ke Artikel</button>
+      </div>
+     
+    </div>
+  </div>
+</div>
+
 @endsection
 
 @section('javascript')
@@ -284,6 +314,15 @@
                 }
             });
 
+        });
+
+        $('.media').on('click', function(){
+            var id = $(this).data('id');
+            var srcimg = $(this).attr('src');
+            var wimg   = $(this).attr('width');
+            var himg   = $(this).attr('height');
+            $('#content_ifr').contents().find('#tinymce').append('<img src="'+srcimg+'" width="'+wimg+'" height="'+himg+'">');
+            $(".close").click();
         });
 
     </script>
