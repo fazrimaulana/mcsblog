@@ -43,15 +43,15 @@
                   @if (Route::has('login'))
                     @if (Auth::check())
                       <li>
-                        <a href="{{ url(Modules\Settings\Models\Setting::getUrlHome('home_url')) }}"><i class="fa fa-sign-in" aria-hidden="true"></i> Home</a>
+                        <a href="{{ url(Modules\Settings\Models\Setting::getUrlHome('home_url')) }}"><i class="fa fa-user" aria-hidden="true"></i> {{ Auth::user()->name }}</a>
                       </li>
                     @else
-                      <li>
+                      <!-- <li>
                         <a href="{{ url('/login') }}"><i class="fa fa-sign-in" aria-hidden="true"></i> Sign In</a>
-                      </li>
-                      <li>
+                      </li> -->
+                      <!-- <li>
                         <a href="{{ url('/register') }}"><i class="fa fa-user-plus" aria-hidden="true"></i> Sign Up</a>
-                      </li>
+                      </li> -->
                     @endif
                   @endif
                 </ul>
@@ -104,7 +104,7 @@
                 <p><i class="fa fa-user-o" aria-hidden="true"></i> {{ $post->user->name }}</p>
               </div>
               <div class="date col-md-3 col-sm-4">
-                <p><i class="fa fa-calendar" aria-hidden="true"></i> {{ $post->published_at }}</p>
+                <p><i class="fa fa-calendar" aria-hidden="true"></i> {{ App\Helpers\Tanggal::TanggalIndo($post->published_at) }}</p>
               </div>
               <div class="comment col-md-3 col-sm-4">
                 <p><i class="fa fa-comment-o" aria-hidden="true"></i> <a href="#">{{ $post->comments_count }} COMMENTS</a></p>
@@ -120,7 +120,7 @@
 
       @endforeach
 
-      <nav aria-label="Page navigation" id="div1">
+      <!-- <nav aria-label="Page navigation" id="div1">
         <ul class="pager">
           <li>
             <a href="#" aria-label="Previous">
@@ -137,8 +137,74 @@
               <span aria-hidden="true">»</span>
             </a>
           </li>
+        </ul>
+      </nav> -->
+
+      @if($posts->lastPage() > 1)
+
+      <nav aria-label="Page navigation" id="div1">
+        <ul class="pager">
+          @if($posts->currentPage() != 1)
+            <li>
+              <a href="{{ $posts->url(1) }}" aria-label="Previous">
+                <span aria-hidden="true">«</span>
+              </a>
+            </li>
+          @endif
+          @for($i = 1; $i <= $posts->lastPage(); $i++)
+
+            @if( ( ($i >= $posts->currentPage()-3) && ( $i <= $posts->currentPage()+3 ) ) || ($i == 1) )
+
+              @if($i==$posts->lastPage() && $posts->currentPage() <= $posts->lastPage()-5)
+
+                <li><a href="{{ $posts->url( $posts->currentPage()-4 ) }}" class="{{ ($posts->currentPage() == $i) ? ' active' : '' }}">...</a></li>
+
+              @endif            
+
+              @if($i == $posts->currentPage())
+
+                <li><a href="{{ $posts->url($i) }}" class="{{ ($posts->currentPage() == $i) ? ' active' : '' }}">{{ $i }}</a></li>
+
+              @else
+
+                <li><a href="{{ $posts->url($i) }}" class="{{ ($posts->currentPage() == $i) ? ' active' : '' }}">{{ $i }}</a></li>
+
+              @endif
+
+              @if($i==1 && $posts->currentPage() >= 6)
+
+                <li><a href="{{ $posts->url( $posts->currentPage()-4 ) }}" class="{{ ($posts->currentPage() == $i) ? ' active' : '' }}">...</a></li>
+
+              @endif
+
+            @endif
+
+          @endfor
+
+          @if($posts->currentPage()!=$posts->lastPage() && $posts->currentPage()+4<=$posts->lastPage() && $posts->lastPage()>=5 )
+
+            <li>
+              <a href="{{ $posts->url( $posts->currentPage()+4 ) }}" class="{{ ($posts->currentPage() == $i) ? ' active' : '' }}">
+                ...
+              </a>
+            </li>
+
+          @endif
+
+          @if($posts->currentPage()!=$posts->lastPage())
+
+            <li>
+              <a href="{{ $posts->url($posts->currentPage()+1) }}" class="{{ ($posts->currentPage() == $posts->lastPage()) ? 'disabled' : '' }}" aria-label="Next">
+                <span aria-hidden="true">»</span>
+              </a>
+            </li>
+
+          @endif
+
         </ul><!--END OF .PAGER-->
       </nav><!--END OF .NAVIGATION-->
+      @endif
+
     </div><!--END OF .POST-->
 
     <div class="features">

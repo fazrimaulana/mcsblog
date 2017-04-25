@@ -234,6 +234,12 @@
 
                 @endforeach
 
+                <li>
+                    <a href="{{ url($home) }}" class=" {{ strpos(Route::currentRouteName(), 'dashboard.home') === 0 ? 'active' : '' }} ">
+                        <i class="fa fa-home fa-lg" aria-hidden="true"> <span>Dashboard</span></i>
+                    </a>
+                </li>
+
             </ul><!--END OF SIDEBAR-NAV-->
         </div>
         <!-- /#sidebar-wrapper -->

@@ -8,12 +8,14 @@ use Modules\Posts\Models\Post;
 use App\Transformers\PostTransformer;
 use App\Transformers\MediaTransformer;
 use App\Transformers\CommentTransformer;
+use App\Transformers\RoleTransformer;
 
 use Auth;
 use App\User;
 use App\Transformers\UserTransformer;
 use Modules\Media\Models\Media;
 use Modules\Comments\Models\Comment;
+use Modules\Role\Models\Role;
 
 class ApiController extends Controller
 {
@@ -110,6 +112,34 @@ class ApiController extends Controller
         {
             return response()->json(['error' => 'Your credential is wrong'], 401);
         }
+    }
+
+    public function users(User $user, Request $request)
+    {   
+        $user = User::find(Auth::user()->id);
+
+        if ($user) {
+            $users = User::all();
+            return fractal()->collection($users)->transformWith(new UserTransformer)->toArray();
+        }
+        else
+        {
+            return response()->json(['error' => 'Your credential is wrong'], 401);
+        }
+    }
+
+    public function addUser(User $user)
+    {
+        $user = User::find(Auth::user()->id);
+
+        if ($user) {
+            $roles = Role::all();
+            return fractal()->collection($roles)->transformWith(new RoleTransformer)->toArray(); 
+        }
+        else
+        {
+            return response()->json(['error' => 'Your credential is wrong'], 401);
+        }   
     }
 
 }

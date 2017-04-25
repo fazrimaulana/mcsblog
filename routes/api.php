@@ -15,9 +15,9 @@ use Illuminate\Http\Request;
 
 Route::post('/login', 'ApiController@login');
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+/*Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
-});
+});*/
 
 //posts
 Route::middleware('auth:api')->get('/posts', 'ApiController@posts');
@@ -30,3 +30,9 @@ Route::middleware('auth:api')->get('/medias', 'ApiController@medias');
 
 //media
 Route::middleware('auth:api')->get('/comments', 'ApiController@comments');
+
+//users
+Route::middleware('auth:api')->get('/users', 'ApiController@users');
+
+//add users
+Route::middleware('auth:api')->get('/add-user', 'ApiController@addUser');
