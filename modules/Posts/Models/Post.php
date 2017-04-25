@@ -11,7 +11,7 @@ class Post extends Model
 	protected $primarykey = "id";
 
 	protected $fillable = [
-		"author", "title", "slug", "content", "published_at", "type", "status", "visible", "status_comment", "image"
+		"author", "title", "slug", "content", "published_at", "type", "status", "visible", "status_comment", "image", 'view_count'
 	];
 
 	public function user()

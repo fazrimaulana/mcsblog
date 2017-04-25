@@ -1,34 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>MCS's Blog</title>
+@extends('layouts.frontend')
 
-    <!-- CSS-->
-    <link href="{{ url('/frontend/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ url('/frontend/css/custom.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url('/frontend/css/font-awesome.css') }}">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet"> 
-    <link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700" rel="stylesheet"> 
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="{{ url('/frontend/js/bootstrap.min.js') }}"></script>
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
-  <body>
+@section('content')
     <div class="header">
       <div class="wr-header container">
         <div class="logo col-md-3 col-sm-12 col-xs-12">
@@ -68,12 +40,20 @@
                   <li>
                     <a href="#" class="show-search"><i class="fa fa-search" aria-hidden="true"></i> Search</a>
                   </li>
-                  <li>
-                    <a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i> Sign In</a>
-                  </li>
-                  <li>
-                    <a href="#"><i class="fa fa-user-plus" aria-hidden="true"></i> Sign Up</a>
-                  </li>
+                  @if (Route::has('login'))
+                    @if (Auth::check())
+                      <li>
+                        <a href="{{ url(Modules\Settings\Models\Setting::getUrlHome('home_url')) }}"><i class="fa fa-sign-in" aria-hidden="true"></i> Home</a>
+                      </li>
+                    @else
+                      <li>
+                        <a href="{{ url('/login') }}"><i class="fa fa-sign-in" aria-hidden="true"></i> Sign In</a>
+                      </li>
+                      <li>
+                        <a href="{{ url('/register') }}"><i class="fa fa-user-plus" aria-hidden="true"></i> Sign Up</a>
+                      </li>
+                    @endif
+                  @endif
                 </ul>
               </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
@@ -90,121 +70,55 @@
     </div>
 
     <div class="opening">
-      <h4><span>WELCOME</span> ON MCS'S BLOG</h4>
+      <h4>
+        {{ $tagline->setting_value }}
+      </h4>
     </div><!--END OF .OPENING-->
 
     <div class="post">
-      
-      <div class="artikel container">
-        <div class="type-tag col-md-12 col-sm-12 col-xs-12 text-center">
-          <p>ACTION</p>
-        </div><!--END OF .TYPE-TAG-->
-        <div class="title col-md-12 col-sm-12 col-xs-12 text-center">
-          <h1>LOREM IPSUM IS SIMPLY DUMMY</h1>
-        </div><!--END OF .TITLE-->
-        <div class="image col-md-12 col-sm-12 col-xs-12">
-          <img class="wrapper-img" src="{{ url('/frontend/images/image-1.jpg') }}">
-        </div><!--END OF .IMAGE-->
-        <div class="detail col-md-12 col-sm-12 col-xs-12">
-          <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-            when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
-            It has survived not only five centuries, but also the leap into electronic typesetting, 
-            remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
-            and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-        </div><!--END OF .DETAIL-->
-        <div class="artikel-footer">
-          <div class="footer-left col-md-10 col-sm-10 col-xs-12">
-            <div class="type-user col-md-3 col-sm-4">
-              <p><i class="fa fa-user-o" aria-hidden="true"></i> ADMIN</p>
-            </div>
-            <div class="date col-md-3 col-sm-4">
-              <p><i class="fa fa-calendar" aria-hidden="true"></i> 20 APRIL 2017</p>
-            </div>
-            <div class="comment col-md-3 col-sm-4">
-              <p><i class="fa fa-comment-o" aria-hidden="true"></i> <a href="#">0 COMMENTS</a></p>
-            </div>
-            <div class="clearfix"></div>
-          </div>
-          <div class="footer-right col-md-2 col-sm-2 col-xs-12">
-            <p class="pull-right"><a href="#">READ MORE...</a></p>
-          </div>
-          <div class="clearfix"></div>
-        </div><!--END OF .ARTIKEL-FOOTER-->
-      </div><!--END OF .ARTIKEL-->
 
-      <div class="artikel container">
-        <div class="type-tag col-md-12 col-sm-12 col-xs-12 text-center">
-          <p>BIOGRAPHY</p>
-        </div><!--END OF .TYPE-TAG-->
-        <div class="title col-md-12 col-sm-12 col-xs-12 text-center">
-          <h1>LOREM IPSUM IS SIMPLY DUMMY</h1>
-        </div><!--END OF .TITLE-->
-        <div class="image col-md-12 col-sm-12 col-xs-12">
-          <img class="wrapper-img" src="{{ url('/frontend/images/image-2.jpg') }}">
-        </div><!--END OF .IMAGE-->
-        <div class="detail col-md-12 col-sm-12 col-xs-12">
-          <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-            when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
-            It has survived not only five centuries, but also the leap into electronic typesetting, 
-            remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
-            and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-        </div><!--END OF .DETAIL-->
-        <div class="artikel-footer">
-          <div class="footer-left col-md-10 col-sm-10 col-xs-12">
-            <div class="type-user col-md-3 col-sm-4">
-              <p><i class="fa fa-user-o" aria-hidden="true"></i> ADMIN</p>
-            </div>
-            <div class="date col-md-3 col-sm-4">
-              <p><i class="fa fa-calendar" aria-hidden="true"></i> 20 APRIL 2017</p>
-            </div>
-            <div class="comment col-md-3 col-sm-4">
-              <p><i class="fa fa-comment-o" aria-hidden="true"></i> <a href="#">0 COMMENTS</a></p>
-            </div>
-            <div class="clearfix"></div>
-          </div>
-          <div class="footer-right col-md-2 col-sm-2 col-xs-12">
-            <p class="pull-right"><a href="#">READ MORE...</a></p>
-          </div>
-          <div class="clearfix"></div>
-        </div><!--END OF .ARTIKEL-FOOTER-->
-      </div><!--END OF .ARTIKEL-->
+      @foreach($posts as $post)
 
-      <div class="artikel container">
-        <div class="type-tag col-md-12 col-sm-12 col-xs-12 text-center">
-          <p>TEKHNOLOGY</p>
-        </div><!--END OF .TYPE-TAG-->
-        <div class="title col-md-12 col-sm-12 col-xs-12 text-center">
-          <h1>LOREM IPSUM IS SIMPLY DUMMY</h1>
-        </div><!--END OF .TITLE-->
-        <div class="image col-md-12 col-sm-12 col-xs-12">
-          <img class="wrapper-img" src="{{ url('/frontend/images/image-3.jpg') }}">
-        </div><!--END OF .IMAGE-->
-        <div class="detail col-md-12 col-sm-12 col-xs-12">
-          <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-            when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
-            It has survived not only five centuries, but also the leap into electronic typesetting, 
-            remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
-            and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-        </div><!--END OF .DETAIL-->
-        <div class="artikel-footer">
-          <div class="footer-left col-md-10 col-sm-10 col-xs-12">
-            <div class="type-user col-md-3 col-sm-4">
-              <p><i class="fa fa-user-o" aria-hidden="true"></i> ADMIN</p>
+        <div class="artikel container">
+          <div class="type-tag col-md-12 col-sm-12 col-xs-12 text-center">
+            <p>
+              
+              @foreach($post->categories as $category)
+                {{ $category->name }},
+              @endforeach
+
+            </p>
+          </div><!--END OF .TYPE-TAG-->
+          <div class="title col-md-12 col-sm-12 col-xs-12 text-center">
+            <h1>{{ $post->title }}</h1>
+          </div><!--END OF .TITLE-->
+          <div class="image col-md-12 col-sm-12 col-xs-12">
+            <img class="wrapper-img" src="{{ url($post->image) }}">
+          </div><!--END OF .IMAGE-->
+          <div class="detail col-md-12 col-sm-12 col-xs-12">
+            {!! $post->content !!}
+          </div><!--END OF .DETAIL-->
+          <div class="artikel-footer">
+            <div class="footer-left col-md-10 col-sm-10 col-xs-12">
+              <div class="type-user col-md-3 col-sm-4">
+                <p><i class="fa fa-user-o" aria-hidden="true"></i> {{ $post->user->name }}</p>
+              </div>
+              <div class="date col-md-3 col-sm-4">
+                <p><i class="fa fa-calendar" aria-hidden="true"></i> {{ $post->published_at }}</p>
+              </div>
+              <div class="comment col-md-3 col-sm-4">
+                <p><i class="fa fa-comment-o" aria-hidden="true"></i> <a href="#">{{ $post->comments_count }} COMMENTS</a></p>
+              </div>
+              <div class="clearfix"></div>
             </div>
-            <div class="date col-md-3 col-sm-4">
-              <p><i class="fa fa-calendar" aria-hidden="true"></i> 20 APRIL 2017</p>
-            </div>
-            <div class="comment col-md-3 col-sm-4">
-              <p><i class="fa fa-comment-o" aria-hidden="true"></i> <a href="#">0 COMMENTS</a></p>
+            <div class="footer-right col-md-2 col-sm-2 col-xs-12">
+              <p class="pull-right"><a href="{{ url('/'.$post->slug) }}">READ MORE...</a></p>
             </div>
             <div class="clearfix"></div>
-          </div>
-          <div class="footer-right col-md-2 col-sm-2 col-xs-12">
-            <p class="pull-right"><a href="#">READ MORE...</a></p>
-          </div>
-          <div class="clearfix"></div>
-        </div><!--END OF .ARTIKEL-FOOTER-->
-      </div><!--END OF .ARTIKEL-->
+          </div><!--END OF .ARTIKEL-FOOTER-->
+        </div><!--END OF .ARTIKEL-->
+
+      @endforeach
 
       <nav aria-label="Page navigation" id="div1">
         <ul class="pager">
@@ -236,21 +150,11 @@
             </div><!--END OF .TITLE-->
             <div class="list-category">
               <ul class="list">
-                <li>
-                  <a href="#">ACTION</a>
-                </li>
-                <li>
-                  <a href="#">OPINI</a>
-                </li>
-                <li>
-                  <a href="#">TECHNOLOGY</a>
-                </li>
-                <li>
-                  <a href="#">FOOD AND DRINK</a>
-                </li>
-                <li>
-                  <a href="#">BIOGRAPHY</a>
-                </li>
+                @foreach($categories as $category)
+                  <li>
+                    <a href="{{ url('/category/'.$category->slug) }}">{{ $category->name }}</a>
+                  </li>
+                @endforeach
               </ul><!--END OF .LIST-->
             </div><!--END OF .LIST-CATEGORY-->
           </div><!--END OF .CATEGORY-->
@@ -289,48 +193,28 @@
             <div class="title">
               <h3>POPULAR POSTS</h3>
             </div><!--END OF .TITLE-->
-            <div class="wr-popular">
-              <div class="image">
-                <img class="img-responsive" src="{{ url('/frontend/images/image-1.jpg') }}">
-              </div>
-              <a href="#">LOREM IPSUM IS SIMPLY DUMMY</a>
-            </div><!--END OF .WR-POPULAR-->
-            <div class="wr-popular">
-              <div class="image">
-                <img class="img-responsive" src="{{ url('/frontend/images/image-2.jpg') }}">
-              </div>
-              <a href="#">LOREM IPSUM IS SIMPLY DUMMY</a>
-            </div><!--END OF .WR-POPULAR-->
-            <div class="wr-popular">
-              <div class="image">
-                <img class="img-responsive" src="{{ url('/frontend/images/image-3.jpg') }}">
-              </div>
-              <a href="#">LOREM IPSUM IS SIMPLY DUMMY</a>
-            </div><!--END OF .WR-POPULAR-->
+            @foreach($popular_posts as $popular)
+              <div class="wr-popular">
+                <div class="image">
+                  <img class="img-responsive" src="{{ url($popular->image) }}">
+                </div>
+                <a href="{{ url('/'.$popular->slug) }}">{{ $popular->title }}</a>
+              </div><!--END OF .WR-POPULAR-->
+            @endforeach
           </div><!--END OF .POPULAR-POST-->
 
           <div class="recent-post col-md-6 col-sm-6 col-xs-12">
             <div class="title">
               <h3>RECENT POSTS</h3>
             </div><!--END OF .TITLE-->
-            <div class="wr-recent">
-              <div class="image">
-                <img class="img-responsive" src="{{ url('/frontend/images/image-1.jpg') }}">
-              </div>
-              <a href="#">LOREM IPSUM IS SIMPLY DUMMY</a>
-            </div><!--END OF .WR-POPULAR-->
-            <div class="wr-recent">
-              <div class="image">
-                <img class="img-responsive" src="{{ url('/frontend/images/image-2.jpg') }}">
-              </div>
-              <a href="#">LOREM IPSUM IS SIMPLY DUMMY</a>
-            </div><!--END OF .WR-POPULAR-->
-            <div class="wr-recent">
-              <div class="image">
-                <img class="img-responsive" src="{{ url('/frontend/images/image-3.jpg') }}">
-              </div>
-              <a href="#">LOREM IPSUM IS SIMPLY DUMMY</a>
-            </div><!--END OF .WR-RECENT-->
+            @foreach($recent_posts as $recent)
+              <div class="wr-recent">
+                <div class="image">
+                  <img class="img-responsive" src="{{ url($recent->image) }}">
+                </div>
+                <a href="{{ url('/'.$recent->slug) }}">{{ $recent->title }}</a>
+              </div><!--END OF .WR-POPULAR-->
+            @endforeach
           </div><!--END OF .RECENT-POST-->
           <div class="clearfix"></div>
         </div><!--END OF .FEATURES-MID-->
@@ -352,12 +236,9 @@
             </div>
             <div class="category">
               <ul class="list">
-                <li><a href="#">ACTION</a></li>
-                <li><a href="#">OPINI</a></li>
-                <li><a href="#">TECHNOLOGY</a></li>
-                <li><a href="#">FOOD</a></li>
-                <li><a href="#">DRINK</a></li>
-                <li><a href="#">BIOGRAPHY</a></li>
+                @foreach($tags as $tag)
+                  <li><a href="{{ url('/tag/'.$tag->slug) }}">{{ $tag->name }}</a></li>
+                @endforeach
               </ul>
             </div>
             <div class="clearfix"></div>
@@ -370,22 +251,4 @@
     <div class="footer text-center">
       <small>Maxindo Content Solution &copy; 2017 - All Right Reserved. </small>
     </div>
-
-    <script type="text/javascript">
-
-       // Belum detect view secara realtime
-      var viewportWidth = $(window).width();
-      var viewportHeight = $(window).height();
-
-      // script untuk toggle .show-search
-      $(document).ready(function() {
-          $('.input-search').css({'display':'none'});
-          $('.show-search').click(function() {
-            $('.input-search').animate({height: 'toggle'});
-            $('.input-search').css({ 'top': 80, 'position': 'fixed', 'z-index': 999 });
-          });
-      });
-
-    </script>
-  </body>
-</html>
+@endsection

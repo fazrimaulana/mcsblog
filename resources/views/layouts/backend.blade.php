@@ -21,7 +21,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ Route::currentRouteName() }}-{{ $title_dashboard->setting_value }}</title>
+    <title>{{ str_replace('dashboard.','',Route::currentRouteName()) }}-{{ $title_dashboard->setting_value }}</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="{{ url('/backend/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -185,7 +185,7 @@
 
                 ?>
                 <li>
-                    <a href="{{ url($home) }}" class=" {{ strpos(Route::currentRouteName(), 'home.dashboard') === 0 ? 'active' : '' }} ">
+                    <a href="{{ url($home) }}" class=" {{ strpos(Route::currentRouteName(), 'dashboard.home') === 0 ? 'active' : '' }} ">
                         <i class="fa fa-home fa-lg" aria-hidden="true"> <span>Dashboard</span></i>
                     </a>
                 </li>
