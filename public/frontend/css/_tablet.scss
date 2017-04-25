@@ -1,0 +1,185 @@
+@media (min-width: 768px) and (max-width: 1023px) {
+
+    //---------- HEADER ----------//
+    .header {
+        .logo {
+            .navbar-brand {
+                position: relative;
+                left: 300px;
+            }
+        }
+    }
+
+    //---------- OPENING ----------//
+    .opening {
+        h4 {
+            font-size: 53px;
+            padding: 35% 5%;
+        }   
+        background-size: 1157px;
+        height: calc( 100vh - 254px);
+    }
+
+    //---------- POST ----------//
+    .post {
+        .artikel {
+            p {
+                font-size: 14px;
+            }
+            .type-tag {
+                p::before {
+                    content: "";
+                  width: 6%;
+                }
+                p::after {
+                    content: "";
+                  width: 6%;
+                }
+            }
+            .title {
+                h1 {
+                    font-size: 32px;
+                }
+            }
+            .image {
+                img {
+                    height: 400px;
+                }
+                height: 400px;
+            }
+        }
+    }
+
+    //---------- FEATURES ----------//
+    .features {
+        .wr-features {
+
+            //---------- FEATURES-LEFT ----------//
+            .features-left {
+                .category {
+                    .title {
+                        h3 {
+                            font-size: 22px;
+                            margin-bottom: 15px;    
+                        }
+                    }
+                    .list-category {
+                        .list {
+                            li {
+                                line-height: 30px;
+                            }
+                            a {
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                    padding-bottom: 15px;
+                    margin-bottom: 30px;
+                }
+
+                .about {
+                    .title {
+                        h3 {
+                            font-size: 22px;
+                            margin-bottom: 15px;
+                        }
+                    }
+                    .detail {
+                        p {
+                            margin-bottom: 20px;
+                        }
+                    }
+                    .sosmed {
+                        .nav {
+                            li {
+                                i {
+                                    font-size: 14px;
+                                }
+                            }
+                        }
+                    }
+                    padding-bottom: 15px;
+                }
+            }
+
+            //---------- FEATURES-MID ----------//
+            .features-mid {
+                .popular-post {
+                    .title {
+                        h3 {
+                            font-size: 22px;
+                        }
+                    }
+                    .wr-popular {
+                        .image {
+                            img {
+                                height: 80px;
+                            }
+                            height: 80px;
+                        }
+                        a {
+                            font-size: 14px;
+                            line-height: 20px;
+                        }
+                    }
+                }
+
+                .recent-post {
+                    .title {
+                        h3 {
+                            font-size: 22px;
+                        }
+                    }
+                    .wr-recent {
+                        .image {
+                            img {
+                                height: 80px;
+                            }
+                            height: 80px;
+                        }
+                        a {
+                            font-size: 14px;
+                            line-height: 20px;
+                        }
+                    }
+                }
+            }
+
+            //---------- FEATURES-RIGHT ----------//
+            .features-right {
+                .newsletter {
+                    .title {
+                        h3 {
+                            font-size: 22px;
+                            margin-bottom: 25px;
+                        }
+                    }
+                    .input {
+                        p {
+                            font-size: 14px;
+                        }
+                    }
+                }
+
+                .tags {
+                    .title {
+                        h3 {
+                            font-size: 22px;
+                        }
+                    }
+                    .category {
+                        .list {
+                            li {
+                                height: 40px;
+                            }
+                            a {
+                                font-size: 14px;
+                                height: 35px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

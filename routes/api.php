@@ -22,6 +22,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 //posts
 Route::middleware('auth:api')->get('/posts', 'ApiController@posts');
 
+//pages
+Route::middleware('auth:api')->get('/pages', 'ApiController@pages');
+
 //media
 Route::middleware('auth:api')->get('/medias', 'ApiController@medias');
 

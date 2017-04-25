@@ -42,7 +42,7 @@ class ApiController extends Controller
             }
             else
             {
-                $posts = Post::where('type', 'post')->get();
+                $posts = Post::where('type', 'post')->orderBy('id', 'DESC')->get();
             }
     		return fractal()->collection($posts)->transformWith(new PostTransformer)->toArray();
     	}
@@ -50,6 +50,26 @@ class ApiController extends Controller
     	{
     		return response()->json(['error' => 'Your credential is wrong'], 401);
     	}
+    }
+
+    public function pages(User $user, Request $request)
+    {   
+        $user = User::find(Auth::user()->id);
+
+        if ($user) {
+            if ($request->id) {
+                $posts = Post::where('id', $request->id)->where('type', 'page')->get();
+            }
+            else
+            {
+                $posts = Post::where('type', 'page')->orderBy('id', 'DESC')->get();
+            }
+            return fractal()->collection($posts)->transformWith(new PostTransformer)->toArray();
+        }
+        else
+        {
+            return response()->json(['error' => 'Your credential is wrong'], 401);
+        }
     }
 
     public function medias(User $user, Request $request)

@@ -1,0 +1,196 @@
+@media (max-width: 767px) {
+
+    //---------- HEADER ----------//
+    .header {
+        .logo {
+            .navbar-brand {
+                position: relative;
+                text-align: center;
+            }
+        }
+        .menu {
+            .navbar-custom {
+                .wr-navbar {
+                    .navbar-header {
+                        button.navbar-toggle {
+                            .icon-bar {
+                                background-color: $grey-body;
+                            }
+                            margin: 23px;
+                            background-color: $green;
+                        }
+                        span.navbar-brand {
+                            margin: 15px 10px;
+                            font-family: 'PT Serif', serif;
+                            font-weight: 600;
+                            font-size: 18px;
+                            letter-spacing: 3px;
+                        }
+                    }
+                    .navbar-menu {
+                        .navbar-nav {
+                            li {
+                                height: 60px;
+                                padding: 0px;
+                                border: none;
+                            }
+                            a {
+                                height: 60px;
+                                padding: 20px 30px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    //---------- OPENING ----------//
+    .opening {
+         h4 {
+            font-size: 26px;
+            padding: 75% 5%;
+        }
+        background-size: 1000px;
+    }
+
+    //---------- POST ----------//
+    .post {
+        .artikel {
+            p {
+                font-size: 14px;
+            }
+            .type-tag {
+                p::before {
+                    content: "";
+                display: inline-block;
+                height: 0.5em;
+                width: 8%;
+                margin-left: 0%;
+                margin-right: 20px;
+                    border-top: 2px solid $grey-text;
+                }
+                p::after {
+                    content: "";
+                display: inline-block;
+                height: 0.5em;
+                width: 8%;
+                margin-right: 0%;
+                margin-left: 20px;
+                    border-top: 2px solid $grey-text;
+                }
+            }
+            .title {
+                h1 {
+                    font-size: 26px;
+                }
+            }
+            .image {
+                img {
+                    height: 250px;
+                }
+                height: 250px;
+            }
+            .artikel-footer {
+                .footer-left {
+                    p {
+                        line-height: 30px;
+                    }
+                }
+                .footer-right {
+                    p {
+                        line-height: 30px;
+                    }
+                }
+            }
+        }
+        padding: 0px 15px;
+    }
+
+    //---------- FEATURES ----------//
+    .features {
+        .wr-features {
+
+            .features-left {
+                .category {
+                    .title {
+                        h3 {
+                            font-size: 20px;
+                        }
+                    }
+                }
+                .about {
+                    .title {
+                        h3 {
+                            font-size: 20px;
+                        }
+                    }
+                    margin-bottom: 30px;
+                    border-bottom: 7px double $grey-body;
+                }
+                padding: 0px;
+            }
+
+            .features-mid {
+                .popular-post {
+                    .title {
+                        h3 {
+                            font-size: 20px;
+                        }
+                    }
+                    .wr-popular {
+                        .image {
+                            height: 150px;
+                        }
+                        img {
+                            height: 150px;  
+                        }
+                    }
+                    padding: 0px;
+                    border-right: none;
+                    border-bottom: 7px double $grey-body;
+                    margin-bottom: 30px;
+                }
+                .recent-post {
+                    .title {
+                        h3 {
+                            font-size: 20px;
+                        }
+                    }
+                    .wr-recent {
+                        .image {
+                            height: 150px;
+                        }
+                        img {
+                            height: 150px;
+                        }
+                    }
+                    padding: 0px;
+                    border-bottom: 7px double $grey-body;
+                    margin-bottom: 30px;
+                }
+                border: none;  
+                padding: 0px;     
+            }
+
+            .features-right {
+                .newsletter {
+                    .title {
+                        h3 {
+                            font-size: 20px;
+                        }
+                    }
+                }
+                .tags {
+                    .title {
+                        h3 {
+                            font-size: 20px;
+                        }
+                    }
+                }
+                padding: 0px;   
+            }
+            padding: 0px 15px;
+        }
+    }
+}
