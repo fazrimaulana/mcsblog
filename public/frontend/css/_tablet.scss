@@ -2,11 +2,23 @@
 
     //---------- HEADER ----------//
     .header {
-        .logo {
-            .navbar-brand {
-                position: relative;
-                left: 300px;
-            }
+       .navbar-custom {
+           .wr-navbar {
+               .navbar-header {
+                   padding: 5px 0px;
+               }
+               .navbar-nav {
+                   li {
+                       padding: 15px 0px;
+                   }
+               }
+               .navbar-right {
+                   li {
+                       padding-top: 0px;
+                   }
+               }
+           }
+            height: auto;
         }
     }
 
@@ -25,16 +37,6 @@
         .artikel {
             p {
                 font-size: 14px;
-            }
-            .type-tag {
-                p::before {
-                    content: "";
-                  width: 6%;
-                }
-                p::after {
-                    content: "";
-                  width: 6%;
-                }
             }
             .title {
                 h1 {
@@ -181,5 +183,85 @@
                 }
             }
         }
+    }
+
+    //---------- SINGLE-POST ----------//
+    .single-post {
+        //---------- POST ----------//
+        .post {
+            .artikel {
+                p {
+                    font-size: 14px !important;
+                }
+                .title {
+                    h1 {
+                        font-size: 32px !important;
+                    }
+                }
+                .image {
+                    img {
+                        height: 400px !important;
+                    }
+                    height: 400px !important;
+                }
+            }
+        }
+
+        //---------- FORM-COMMENT ----------//
+        .form-comment {
+            .wr-form-comment {
+                .title {
+                    h1 {
+                        font-size: 32px !important;
+                    }
+                }
+                .form {
+                    table {
+                        td {
+                            input {
+                                font-size: 14px !important;
+                                padding: 10px !important;
+                                height: 40px !important; 
+                            }
+                        }
+                    }
+                    textarea {
+                        padding: 10px !important;
+                        font-size: 14px !important;
+                    }
+                    button {
+                        p {
+                            font-size: 14px !important;
+                        }
+                    }
+                }
+            }
+        }
+
+        //---------- COMMENT ----------//
+        .wr-comment {
+             //----------HEADING-COMMENT----------//
+             .heading-comment {
+                 .navbar-header {
+                     h1 {
+                         font-size: 32px !important;
+                     }
+                     .badge {
+                         font-size: 16px !important;
+                     }
+                 }
+             }
+
+             //----------COMMENTS-CONTAINER----------//
+             .comments-container {
+                 .comments-list .comment-box {
+                     width: 633px !important;
+                 }
+                 .reply-list .comment-box {
+                    width: 559px !important;
+                 }
+             }
+        }
+        padding-top: 175px !important;
     }
 }

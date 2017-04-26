@@ -1,12 +1,3 @@
-@php
-    
-    use Modules\Settings\Models\Setting;
-
-    $title_dashboard = Setting::where('setting_name', 'site_title')->first(); 
-
-@endphp
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,7 +12,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ str_replace('dashboard.','',Route::currentRouteName()) }}-{{ $title_dashboard->setting_value }}</title>
+    <title>{{ str_replace('dashboard.','',Route::currentRouteName()) }}-{{ Modules\Settings\Models\Setting::getUrlHome('site_title') }}</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="{{ url('/backend/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -57,7 +48,7 @@
                             </a>
                         </div>
                         <div class="brand">
-                            <a class="navbar-brand" href="#"><p>MCS Admin</p></a>
+                            <a class="navbar-brand" href="{{ url(Modules\Settings\Models\Setting::getUrlHome('home_url')) }}"><p>MCS Admin</p></a>
                         </div>
                         
                     </div><!--END OF .NAVBAR-HEADER-->
@@ -235,8 +226,8 @@
                 @endforeach
 
                 <li>
-                    <a href="{{ url($home) }}" class=" {{ strpos(Route::currentRouteName(), 'dashboard.home') === 0 ? 'active' : '' }} ">
-                        <i class="fa fa-home fa-lg" aria-hidden="true"> <span>Dashboard</span></i>
+                    <a href="{{ url(Modules\Settings\Models\Setting::getUrlHome('site_url')) }}" target="_blank">
+                        <i class="fa fa-globe" aria-hidden="true"> <span> Website</span></i>
                     </a>
                 </li>
 

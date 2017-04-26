@@ -19,77 +19,104 @@ body {
 
 //---------- MENU ----------//
 .header {
-    .wr-header {
-        padding: 0px;
-    }
-    .logo {
-        .navbar-brand {
-            h1 {
-                margin-top: 5px;
-                margin-bottom: 0px;
-                color: #eaeaea;
+    .navbar-custom {
+        .wr-navbar {
+            .navbar-header {
+                .navbar-brand {
+                    font-size: 36px;
+                    font-weight: 700;
+                    font-family: 'Open Sans', sans-serif;
+                    color: $grey-body;
+                }
+                padding: 15px 0px;
             }
-            height: 80px;
-            padding: 15px 0px;
-        }
-        height: 80px;
-        padding: 0px;   
-    }
-    .menu {
-        .navbar-custom {
-            .wr-navbar {
-                .navbar-menu {
-                    .navbar-nav {
-                        li {
-                            height: 80px;
-                            padding: 22px 0px;
-                        }
+            .navbar-nav {
+                li {
+                    padding: 21px 0px;
+                }
+                .input-group {
+                    input {
+                        height: 40px;
+                    }
+                    button {
+                        height: 40px;
+                        color: $dark-grey;
+                        border: none;   
+                        -webkit-transition: .2s background-color ease-in, .2s color ease-in;
+                        -moz-transition: .2s background-color ease-in, .2s color ease-in;
+                        -ms-transition: .2s background-color ease-in, .2s color ease-in;
+                        -o-transition: .2s background-color ease-in, .2s color ease-in;
+                        transition: .2s background-color ease-in, .2s color ease-in;
+                    }
+                    button:hover {
+                        background-color: $green;
+                        color: $grey-body;
                     }
                 }
-                padding: 0px;
+                .dropdown {
+                    .dropdown-menu {
+                        li {
+                            padding: 0px;
+                        }
+                        a {
+                            font-family: 'PT Serif', serif;
+                            -webkit-transition: .2s background-color ease-in, .2s color ease-in;
+                            -moz-transition: .2s background-color ease-in, .2s color ease-in;
+                            -ms-transition: .2s background-color ease-in, .2s color ease-in;
+                            -o-transition: .2s background-color ease-in, .2s color ease-in;
+                            transition: .2s background-color ease-in, .2s color ease-in;
+                        }
+                        a:hover {
+                            color: $grey-body;
+                            background-color: $green;
+                        }
+                    }
+                    .dropdown-menu::before {
+                        content: "";
+                    position: absolute;
+                    top: -34%;
+                    left: 70%;
+                    margin-left: -5px;
+                    border-width: 15px;
+                    border-style: solid;
+                    border-color: transparent transparent #fff transparent;
+                    }
+                }
             }
-            margin-bottom: 0px;
-            border: none;
-            border-radius: 0px;
-            background-color: $black;
         }
-        .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:focus, .navbar-default .navbar-nav > .open > a:hover {
-            background-color: $green;
-            color: $grey-body;
-        }
-        .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
-            color: $grey-body;
-            background-color: $green;
-            border-radius: 4px;
-        }   
-         .navbar-default .navbar-nav > li > a {
-            color: $grey-body;
-            font-size: 16px;
-            font-family: 'PT Serif', serif;
-            font-weight: 700;
-            border-radius: 4px;
-            padding: 10px;
-            -webkit-transition: .2s background-color ease-in, .2s border-radius ease-in;
-            -moz-transition: .2s background-color ease-in, .2s border-radius ease-in;
-            -ms-transition: .2s background-color ease-in, .2s border-radius ease-in;
-            -o-transition: .2s background-color ease-in, .2s border-radius ease-in;
-            transition: .2s background-color ease-in, .2s border-radius ease-in;
-        }
-        .navbar-default .navbar-nav > li > a:hover {
-            background-color: $green;
-            border-radius: 4px;
-        }
-        padding: 0px;
+        height: 80px;
+        background-color: $black;
+        border: none;
     }
-    position: fixed;
-    width: 100%;  
-    background-color: $black;
-    z-index: 999;
-}
-
-//---------- INPUT-SEARCH ----------//
-.input-search {
-    padding: 0px;
+    .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:focus, .navbar-default .navbar-nav > .open > a:hover {
+        background-color: $green;
+        color: $grey-body;
+    }
+    .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
+        color: $grey-body;
+        background-color: $green;
+        border-radius: 4px;
+    }   
+    .navbar-default .navbar-nav > li > a {
+        color: $grey-body;
+        font-size: 18px;
+        font-family: 'PT Serif', serif;
+        font-weight: 700;
+        border-radius: 4px;
+        padding: 10px;
+         -webkit-transition: .2s background-color ease-in, .2s border-radius ease-in;
+        -moz-transition: .2s background-color ease-in, .2s border-radius ease-in;
+        -ms-transition: .2s background-color ease-in, .2s border-radius ease-in;
+        -o-transition: .2s background-color ease-in, .2s border-radius ease-in;
+        transition: .2s background-color ease-in, .2s border-radius ease-in;
+    }
+    .navbar-default .navbar-nav > li > a:hover {
+        background-color: $green;
+        border-radius: 4px;
+    }
+position: fixed;
+width: 100%;  
+z-index: 999;
 }
 
 //---------- OPENING ----------//

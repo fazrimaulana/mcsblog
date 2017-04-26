@@ -4,29 +4,28 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use Modules\Settings\Models\Setting;
-use Illuminate\Support\Facades\Auth;
 use Modules\Posts\Models\Post;
-use Modules\Posts\Models\Category;
-use Modules\Posts\Models\Tag;
+use Modules\Settings\Models\Setting;
 
 class FrontendController extends Controller
 {
     public function index()
     {
-    	$tagline 	= Setting::where('setting_name', 'tagline')->first();
-		$posts 		= Post::where('type', 'post')->orderBy('id', 'DESC')->withCount('comments')->paginate(3);
-    	$categories = Category::all();
-    	$tags       = Tag::all();
-    	$popular_posts = Post::where('type', 'post')->orderBy('view_count', 'desc')->paginate(3);
-    	$recent_posts = Post::where('type', 'post')->orderBy('published_at', 'desc')->paginate(3);
+		$posts 		= Post::where('type', 'post')->where('visible', 'public')->orderBy('id', 'DESC')->withCount('comments')->paginate(3);
+        $tagline  = Setting::where('setting_name', 'tagline')->first();
+    	
     	return view('welcome', [
-    		"tagline"    => $tagline,
     		"posts"      => $posts,
-            "categories" => $categories,
-            "tags"       => $tags,
-            "popular_posts" => $popular_posts,
-            "recent_posts" => $recent_posts
+            "tagline"    => $tagline
     	]);
     }
+
+    public function single(Request $request)
+    {
+        $post = Post::where('slug', $request->slug)->withCount('comments')->first();
+        return view('single', [
+                "post" => $post
+            ]);
+    }
+
 }

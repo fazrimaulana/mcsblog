@@ -2,46 +2,36 @@
 
     //---------- HEADER ----------//
     .header {
-        .logo {
-            .navbar-brand {
-                position: relative;
-                text-align: center;
-            }
-        }
-        .menu {
-            .navbar-custom {
-                .wr-navbar {
-                    .navbar-header {
-                        button.navbar-toggle {
-                            .icon-bar {
-                                background-color: $grey-body;
-                            }
-                            margin: 23px;
-                            background-color: $green;
+        .navbar-custom {
+            .wr-navbar {
+                .navbar-header {
+                    .navbar-toggle:hover {
+                        .icon-bar {
+                            background-color: $grey-body;
                         }
-                        span.navbar-brand {
-                            margin: 15px 10px;
-                            font-family: 'PT Serif', serif;
-                            font-weight: 600;
-                            font-size: 18px;
-                            letter-spacing: 3px;
-                        }
-                    }
-                    .navbar-menu {
-                        .navbar-nav {
-                            li {
-                                height: 60px;
-                                padding: 0px;
-                                border: none;
-                            }
-                            a {
-                                height: 60px;
-                                padding: 20px 30px;
-                            }
-                        }
+                        background-color: $green;
+                        border: none;
                     }
                 }
+                .navbar-nav {
+                   li {
+                       padding: 0px;
+                   }
+                   .dropdown {
+                       .dropdown-menu::before {
+                        content: "";
+                        position: absolute;
+                        top: -34%;
+                        left: 70%;
+                        margin-left: -5px;
+                        border-width: 15px;
+                        border-style: solid;
+                        border-color: transparent transparent transparent transparent;
+                        }
+                   }
+               }
             }
+            height: auto;
         }
     }
 
@@ -59,26 +49,6 @@
         .artikel {
             p {
                 font-size: 14px;
-            }
-            .type-tag {
-                p::before {
-                    content: "";
-                display: inline-block;
-                height: 0.5em;
-                width: 8%;
-                margin-left: 0%;
-                margin-right: 20px;
-                    border-top: 2px solid $grey-text;
-                }
-                p::after {
-                    content: "";
-                display: inline-block;
-                height: 0.5em;
-                width: 8%;
-                margin-right: 0%;
-                margin-left: 20px;
-                    border-top: 2px solid $grey-text;
-                }
             }
             .title {
                 h1 {
@@ -192,5 +162,101 @@
             }
             padding: 0px 15px;
         }
+    }
+
+    //---------- SINGLE-POST ----------//
+    .single-post {
+        //---------- POST ----------//
+        .post {
+            .artikel {
+                p {
+                    font-size: 14px !important;
+                }
+                .title {
+                    h1 {
+                        font-size: 26px !important;
+                    }
+                }
+                .image {
+                    img {
+                        height: 250px !important;
+                    }
+                    height: 250px !important;
+                }
+                .artikel-footer {
+                    p {
+                        line-height: 30px !important;
+                    }
+                    .date {
+                        p {
+                            float: left !important;
+                        }
+                    }
+                }
+            }
+            padding: 0px 15px;
+        }
+
+        //---------- FORM-COMMENT ----------//
+        .form-comment {
+            .wr-form-comment {
+                .title {
+                    h1 {
+                        font-size: 26px !important;
+                    }
+                }
+                .form {
+                    table {
+                        td {
+                            input {
+                                font-size: 14px !important;
+                                padding: 10px !important;
+                                height: 40px !important; 
+                                width: 169px !important;
+                            }
+                        }
+                    }
+                    textarea {
+                        padding: 10px !important;
+                        font-size: 14px !important;
+                    }
+                    button {
+                        p {
+                            font-size: 14px !important;
+                        }
+                    }
+                }
+            }
+            padding: 0px 15px;
+        }
+
+        //---------- COMMENT ----------//
+        .comment {
+            padding: 0px 15px;
+        }
+        .wr-comment {
+             //----------HEADING-COMMENT----------//
+             .heading-comment {
+                 .navbar-header {
+                     h1 {
+                         font-size: 26px !important;
+                     }
+                     .badge {
+                         font-size: 14px !important;
+                     }
+                 }
+             }
+
+             //----------COMMENTS-CONTAINER----------//
+             .comments-container {
+                 .comments-list .comment-box {
+                     width: 267px !important;
+                 }
+                 .reply-list .comment-box {
+                    width: 194px !important;
+                 }
+             }
+        }
+        padding-top: 130px !important;
     }
 }

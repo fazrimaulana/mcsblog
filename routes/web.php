@@ -17,6 +17,8 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get(Setting::getUrlHome('site_url'), 'FrontendController@index');
 
+Route::get(Setting::getUrlHome('site_url').'/{slug}', 'FrontendController@single');
+
 Auth::routes();
 
 Route::get(Setting::getUrlHome('home_url'), [ 'as' => 'dashboard.home', 'uses' => 'HomeController@index']);

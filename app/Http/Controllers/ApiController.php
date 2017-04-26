@@ -30,7 +30,7 @@ class ApiController extends Controller
 
 		$data = $user->find(Auth::user()->id);
 
-		return fractal()->item($data)->transformWith(new UserTransformer)->addMeta(['api_token' => $data->api_token])->toArray();
+		return fractal()->item($data)->transformWith(new UserTransformer)->toArray();
 
 	}
 
