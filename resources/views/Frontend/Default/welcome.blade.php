@@ -29,7 +29,7 @@
             <img class="wrapper-img" src="{{ url($post->image) }}">
           </div><!--END OF .IMAGE-->
           <div class="detail col-md-12 col-sm-12 col-xs-12">
-            {!! str_replace("../../../","".url("/")."/",$post->content) !!}
+            {!! substr( str_replace("../../../","".url("/")."/",$post->content), 1, 500 ) !!} ...
           </div><!--END OF .DETAIL-->
           <div class="artikel-footer">
             <div class="footer-left col-md-10 col-sm-10 col-xs-12">
@@ -53,25 +53,6 @@
 
       @endforeach
 
-      <!-- <nav aria-label="Page navigation" id="div1">
-        <ul class="pager">
-          <li>
-            <a href="#" aria-label="Previous">
-              <span aria-hidden="true">«</span>
-            </a>
-          </li>
-          <li><a href="#" class="active">1</a></li>
-          <li><a href="#">2</a></li>
-          <li><a href="#">3</a></li>
-          <li><a href="#">4</a></li>
-          <li><a href="#">5</a></li>
-          <li>
-            <a href="#" aria-label="Next">
-              <span aria-hidden="true">»</span>
-            </a>
-          </li>
-        </ul>
-      </nav> -->
 
       @if($posts->lastPage() > 1)
 
