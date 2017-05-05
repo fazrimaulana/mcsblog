@@ -20,7 +20,7 @@ class PostTableSeeder extends Seeder
 
         	$post->author = 1;
         	$post->title = $faker->sentence(5);
-        	$post->slug = $faker->numerify($faker->sentence(5)."###");
+        	$post->slug = $faker->numerify(str_slug($faker->sentence(5), '-')."###");
         	$post->content = $faker->paragraphs(50, true);
         	$post->published_at = $faker->dateTimeBetween('-5 month', '+3 days');
         	$post->type = "post";

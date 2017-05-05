@@ -29,7 +29,7 @@ class SettingsGeneralSeeder extends Seeder
 
         DB::table('settings')->insert([
         		"setting_name"  => "home_url",
-        		"setting_value" => "/home"
+        		"setting_value" => "/mcs-admin"
         	]);
 
         DB::table('settings')->insert([
@@ -46,6 +46,11 @@ class SettingsGeneralSeeder extends Seeder
         		"setting_name"  => "default_role",
         		"setting_value" => "6"
         	]);
+
+        DB::table('settings')->insert([
+                "setting_name"  => "theme",
+                "setting_value" => "Default"
+            ]);
 
     }
 }

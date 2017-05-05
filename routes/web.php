@@ -15,6 +15,8 @@ use Modules\Settings\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+// Route::get('/', ['as' => 'frontend.index', 'uses'=>'FrontendController@index']);
+
 Route::get(Setting::getUrlHome('site_url'), ['as' => 'frontend.index', 'uses'=>'FrontendController@index']);
 
 Route::get(Setting::getUrlHome('site_url').'/read/{slug}', ['as' => 'frontend.read', 'uses' => 'FrontendController@single']);
@@ -23,7 +25,7 @@ Route::post(Setting::getUrlHome('site_url').'/read/{slug}', ['as' => 'frontend.r
 
 Route::get(Setting::getUrlHome('site_url').'/profile', ['as' => 'frontend.user', 'uses' => 'FrontendController@profile'])->middleware('auth');
 
-Route::get(Setting::getUrlHome('site_url').'/account-setting', ['as' => 'frontend.account.setting', 'uses' => 'FrontendController@accountSetting'])->middleware('auth');
+Route::get(Setting::getUrlHome('site_url').'/account-setting', ['as' => 'frontend.user', 'uses' => 'FrontendController@accountSetting'])->middleware('auth');
 
 Route::get(Setting::getUrlHome('site_url').'/about', ['as' => 'frontend.about', 'uses' => 'FrontendController@about']);
 

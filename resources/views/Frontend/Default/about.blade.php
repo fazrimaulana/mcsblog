@@ -13,7 +13,7 @@
             <div class="wr-information">
                 <div class="detail">
                         
-                        {!! str_replace("../","",$about->content) !!}
+                        {!! str_replace("../","".url("/")."/",$about->content) !!}
 
                 </div><!--END OF .DETAIL-->
             </div><!--END OF .WR-INFORMATION-->

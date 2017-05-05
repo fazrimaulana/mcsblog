@@ -11,11 +11,18 @@ Langkah - langkah install
 5. buka file app.php di folder config, jadikan comment terlebih dahulu provider 
 	Modules\ModuleServiceProvider::class,
 
+	dan jadikan comment route web.php, copykan pada web.php : 
+
+	Route::get('/', ['as' => 'frontend.index', 'uses'=>'FrontendController@index']);
+
+
 6. lalu php artisan migrate
 
 7. lalu php artisan db:seed
 
 8. aktifkan kembali provider Modules\ModuleServiceProvider::class pada file app.php di folder config
+
+	kembalikkan route web.php seperti semula
 
 9. setting relationship pada folder vendor\zizaco\entrust\src\Entrust\Traits\EntrustRoleTrait.php pada 
    method users menjadi :

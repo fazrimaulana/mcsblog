@@ -98,6 +98,14 @@ class ModuleController extends Controller
 
 		if (!$data) 
 		{
+
+			if ($json->name=="Module Management") {
+				$status = "active";
+			}
+			else{
+				$status = "inactive";
+			}
+
 			$datas = [
 				'name' => $json->name,
 				'description' => $json->description,
@@ -109,7 +117,7 @@ class ModuleController extends Controller
 				'sequence' => $json->sequence,
 				'license' => $json->license,
 				'module' => $dir,
-				'status' => 'inactive'
+				'status' => $status
 			];
 
 			Module::create($datas);
