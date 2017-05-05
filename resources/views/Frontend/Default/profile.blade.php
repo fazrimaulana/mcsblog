@@ -61,52 +61,7 @@
 
                             </td>
                         </tr>
-                        <!-- <tr>
-                            <td>
-                                <p>Phone Number </p>
-                            </td>
-                            <td>
-                                <p>: 0811xxxxxxx</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <p>Gender </p>
-                            </td>
-                            <td>
-                                <p>: Male</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <p>Address </p>
-                            </td>
-                            <td>
-                                <p>: Jl.Perkutut II No.5</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <p>City </p>
-                            </td>
-                            <td>
-                                <p>: Bandung</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <p>Postcode </p>
-                            </td>
-                            <td>
-                                <p>: 112233</p>
-                            </td>
-                        </tr> -->
                     </table><!--END OF .INFO-DETAIL-->
-                    <div class="editing text-center">
-                        <a href="#">
-                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i> EDIT
-                        </a>
-                    </div>
                 </div><!--END OF .CONTENT-->
                 <div class="col-md-3 col-sm-1"></div>
             </div><!--END OF .WR-USER-INFO-->

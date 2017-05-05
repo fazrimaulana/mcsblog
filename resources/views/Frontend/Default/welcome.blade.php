@@ -29,7 +29,7 @@
             <img class="wrapper-img" src="{{ url($post->image) }}">
           </div><!--END OF .IMAGE-->
           <div class="detail col-md-12 col-sm-12 col-xs-12">
-            {!! str_replace("../../../","",$post->content) !!}
+            {!! str_replace("../../../","".url("/")."/",$post->content) !!}
           </div><!--END OF .DETAIL-->
           <div class="artikel-footer">
             <div class="footer-left col-md-10 col-sm-10 col-xs-12">

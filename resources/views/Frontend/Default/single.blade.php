@@ -24,7 +24,7 @@
           </div><!--END OF .IMAGE-->
           @endif
           <div class="detail col-md-12 col-sm-12 col-xs-12">
-            {!! str_replace("../../../","../",$post->content) !!}
+            {!! str_replace("../../../","".url("/")."/",$post->content) !!}
           </div><!--END OF .DETAIL-->
           <div class="artikel-footer col-md-12 col-sm-12 col-xs-12">
               <div class="type-user col-md-6 col-sm-6">
