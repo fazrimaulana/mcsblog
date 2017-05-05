@@ -37,6 +37,12 @@
                                         <label class="label-control"><i class="fa fa-comment"></i> <a href="{{ url('/dashboard/comments') }}"> {{ $comments->count() }} Comments</a></label>
                                     </div>
                                 </div>
+                                <br /><br />
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <label class="label-control">McsBlog running <a href="#">{{ title_case(Modules\Settings\Models\Setting::getTheme('theme')) }}</a> theme</label>
+                                    </div>
+                                </div>
 
                             </div>
                         </div>

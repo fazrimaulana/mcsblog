@@ -31,4 +31,10 @@ class Setting extends Model
 		return $home;
 	}
 
+	public static function getTheme($theme)
+	{
+		$setting = Self::getData($theme);
+		return str_slug(title_case($setting), '-');
+	}
+
 }

@@ -15,6 +15,7 @@ use App\User;
 use Modules\Media\Models\Media;
 
 use Illuminate\Validation\Rule;
+use Modules\Appearance\Models\Frontmenu;
 
 class PageController extends Controller
 {
@@ -81,7 +82,8 @@ class PageController extends Controller
 				]);
 
 			if ($request->file('image')!= null):
-            	$upload_dir = "uploads";
+				$folder 	= date('Y')."/".date('m')."/".date('d');
+            	$upload_dir = "uploads/page/".$folder;
             	$namafile   = date("YmdHis")."-".str_slug(pathinfo($request->file('image')->getClientOriginalName(), PATHINFO_FILENAME), '-');
             	$MimeType   = $request->file('image')->getMimeType();
             	/*$file       = $request->file('image');*/
@@ -192,7 +194,8 @@ class PageController extends Controller
 
 				File::delete($post->image);				
 
-            	$upload_dir = "uploads";
+            	$folder 	= date('Y')."/".date('m')."/".date('d');
+            	$upload_dir = "uploads/page/".$folder;
             	$namafile   = date("YmdHis")."-".str_slug(pathinfo($request->file('image')->getClientOriginalName(), PATHINFO_FILENAME), '-');
             	$MimeType   = $request->file('image')->getMimeType();
             	/*$file       = $request->file('image');*/
@@ -255,6 +258,13 @@ class PageController extends Controller
 				$post->tags()->sync(["1"]);
 			}
 
+			$menu = Frontmenu::where('page_id', $post->id)->first();
+			if ($menu) {
+				$menu->update([
+					"href" => "/".$post->slug
+				]);	
+			}
+
 			return redirect('/dashboard/pages');
 
         }else{
@@ -299,12 +309,54 @@ class PageController extends Controller
         }
 	}
 
-	public function status(Request $request)
+	public function published(Request $request)
 	{
 		$method_permission = "can_see_pages";
 		if(Auth::user()->hasRole('root') || Auth::user()->can($method_permission) ){
 
-			$posts = Post::where('status', $request->segment(3))->where('type', 'page')->paginate(15);
+			$posts = Post::where('status', 'published')->where('type', 'page')->paginate(15);
+			$postCount = Post::where('type', 'page')->get();
+			$categories = Category::all();
+			$users = User::all();
+            return view('Pages::index',[
+            		"posts" => $posts,
+            		"postCount" => $postCount,
+            		"categories" =>$categories,
+            		"users" => $users
+            	]);
+
+        }else{
+            return view('404');
+        }
+	}
+
+	public function draft(Request $request)
+	{
+		$method_permission = "can_see_pages";
+		if(Auth::user()->hasRole('root') || Auth::user()->can($method_permission) ){
+
+			$posts = Post::where('status', 'draft')->where('type', 'page')->paginate(15);
+			$postCount = Post::where('type', 'page')->get();
+			$categories = Category::all();
+			$users = User::all();
+            return view('Pages::index',[
+            		"posts" => $posts,
+            		"postCount" => $postCount,
+            		"categories" =>$categories,
+            		"users" => $users
+            	]);
+
+        }else{
+            return view('404');
+        }
+	}
+
+	public function trash(Request $request)
+	{
+		$method_permission = "can_see_pages";
+		if(Auth::user()->hasRole('root') || Auth::user()->can($method_permission) ){
+
+			$posts = Post::where('status', 'trash')->where('type', 'page')->paginate(15);
 			$postCount = Post::where('type', 'page')->get();
 			$categories = Category::all();
 			$users = User::all();

@@ -82,6 +82,9 @@
                     		@endforeach
                     	</tbody>
                     </table>
+
+                    {{ $tags->render() }}
+
                     </div>
                 </div>
             </div>

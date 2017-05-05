@@ -17,22 +17,22 @@ Route::group(['middleware'=>['web', 'auth'],'prefix' => 'dashboard'], function()
 
 		Route::get('/pending', [
 				'as' => 'dashboard.comments.pending',
-				'uses' => 'Modules\Comments\Controllers\CommentController@status'
+				'uses' => 'Modules\Comments\Controllers\CommentController@pending'
 			]);
 
 		Route::get('/approved', [
 				'as' => 'dashboard.comments.approved',
-				'uses' => 'Modules\Comments\Controllers\CommentController@status'
+				'uses' => 'Modules\Comments\Controllers\CommentController@approved'
 			]);
 
 		Route::get('/spam', [
 				'as' => 'dashboard.comments.spam',
-				'uses' => 'Modules\Comments\Controllers\CommentController@status'
+				'uses' => 'Modules\Comments\Controllers\CommentController@spam'
 			]);
 
 		Route::get('/bin', [
 				'as' => 'dashboard.comments.bin',
-				'uses' => 'Modules\Comments\Controllers\CommentController@status'
+				'uses' => 'Modules\Comments\Controllers\CommentController@bin'
 			]);
 
 		Route::post('/apply', [

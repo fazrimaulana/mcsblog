@@ -73,7 +73,7 @@ class UserController extends Controller
 			$user->save();
 
 			if ($request->file('image')!= null):
-            	$upload_dir = "uploads";
+            	$upload_dir = "uploads/foto";
             	$namafile   = date("YmdHis")."-".str_slug(pathinfo($request->file('image')->getClientOriginalName(), PATHINFO_FILENAME), '-');
             	$MimeType   = $request->file('image')->getMimeType();
             	/*$file       = $request->file('image');*/
@@ -141,7 +141,7 @@ class UserController extends Controller
 
 				File::delete($usermeta->image);				
 
-            	$upload_dir = "uploads";
+            	$upload_dir = "uploads/foto";
             	$namafile   = date("YmdHis")."-".str_slug(pathinfo($request->file('image')->getClientOriginalName(), PATHINFO_FILENAME), '-');
             	$MimeType   = $request->file('image')->getMimeType();
             	/*$file       = $request->file('image');*/
@@ -290,12 +290,132 @@ class UserController extends Controller
         }
 	}
 
-	public function status(Request $request)
+	public function root(Request $request)
 	{		
 		$method_permission = "can_see_users";
 		if(Auth::user()->hasRole('root') || Auth::user()->can($method_permission) ){
 
-			$roleId = Role::where('name', $request->segment(3))->first();
+			$roleId = Role::where('name', 'root')->first();
+
+			$users = User::whereHas('roles', function($query) use ($request, $roleId){
+				$query->where('role_id', $roleId->id);
+			})->withCount('posts')->paginate(10);
+			$roles = Role::all();
+			$userCount = User::count();
+
+			return view('Users::index', [
+					"users" => $users,
+					"roles" => $roles,
+					"userCount" => $userCount
+				]);
+
+        }else{
+            return view('404');
+        }
+	}
+
+	public function administrator(Request $request)
+	{		
+		$method_permission = "can_see_users";
+		if(Auth::user()->hasRole('root') || Auth::user()->can($method_permission) ){
+
+			$roleId = Role::where('name', 'administrator')->first();
+
+			$users = User::whereHas('roles', function($query) use ($request, $roleId){
+				$query->where('role_id', $roleId->id);
+			})->withCount('posts')->paginate(10);
+			$roles = Role::all();
+			$userCount = User::count();
+
+			return view('Users::index', [
+					"users" => $users,
+					"roles" => $roles,
+					"userCount" => $userCount
+				]);
+
+        }else{
+            return view('404');
+        }
+	}
+
+	public function editor(Request $request)
+	{		
+		$method_permission = "can_see_users";
+		if(Auth::user()->hasRole('root') || Auth::user()->can($method_permission) ){
+
+			$roleId = Role::where('name', 'editor')->first();
+
+			$users = User::whereHas('roles', function($query) use ($request, $roleId){
+				$query->where('role_id', $roleId->id);
+			})->withCount('posts')->paginate(10);
+			$roles = Role::all();
+			$userCount = User::count();
+
+			return view('Users::index', [
+					"users" => $users,
+					"roles" => $roles,
+					"userCount" => $userCount
+				]);
+
+        }else{
+            return view('404');
+        }
+	}
+
+	public function author(Request $request)
+	{		
+		$method_permission = "can_see_users";
+		if(Auth::user()->hasRole('root') || Auth::user()->can($method_permission) ){
+
+			$roleId = Role::where('name', 'author')->first();
+
+			$users = User::whereHas('roles', function($query) use ($request, $roleId){
+				$query->where('role_id', $roleId->id);
+			})->withCount('posts')->paginate(10);
+			$roles = Role::all();
+			$userCount = User::count();
+
+			return view('Users::index', [
+					"users" => $users,
+					"roles" => $roles,
+					"userCount" => $userCount
+				]);
+
+        }else{
+            return view('404');
+        }
+	}
+
+	public function contributor(Request $request)
+	{		
+		$method_permission = "can_see_users";
+		if(Auth::user()->hasRole('root') || Auth::user()->can($method_permission) ){
+
+			$roleId = Role::where('name', 'contributor')->first();
+
+			$users = User::whereHas('roles', function($query) use ($request, $roleId){
+				$query->where('role_id', $roleId->id);
+			})->withCount('posts')->paginate(10);
+			$roles = Role::all();
+			$userCount = User::count();
+
+			return view('Users::index', [
+					"users" => $users,
+					"roles" => $roles,
+					"userCount" => $userCount
+				]);
+
+        }else{
+            return view('404');
+        }
+	}
+
+	public function subscriber(Request $request)
+	{		
+		$method_permission = "can_see_users";
+		if(Auth::user()->hasRole('root') || Auth::user()->can($method_permission) ){
+
+			$roleId = Role::where('name', 'subscriber')->first();
 
 			$users = User::whereHas('roles', function($query) use ($request, $roleId){
 				$query->where('role_id', $roleId->id);

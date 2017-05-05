@@ -80,7 +80,8 @@ class PostController extends Controller
 				]);
 
 			if ($request->file('image')!= null):
-            	$upload_dir = "uploads";
+				$folder 	= date('Y')."/".date('m')."/".date('d');
+            	$upload_dir = "uploads/post/".$folder;
             	$namafile   = date("YmdHis")."-".str_slug(pathinfo($request->file('image')->getClientOriginalName(), PATHINFO_FILENAME), '-');
             	$MimeType   = $request->file('image')->getMimeType();
             	/*$file       = $request->file('image');*/
@@ -191,8 +192,8 @@ class PostController extends Controller
 			if ($request->file('image')!= null):
 
 				File::delete($post->image);				
-
-            	$upload_dir = "uploads";
+				$folder 	= date('Y')."/".date('m')."/".date('d');
+            	$upload_dir = "uploads/post/".$folder;
             	$namafile   = date("YmdHis")."-".str_slug(pathinfo($request->file('image')->getClientOriginalName(), PATHINFO_FILENAME), '-');
             	$MimeType   = $request->file('image')->getMimeType();
             	/*$file       = $request->file('image');*/
@@ -300,12 +301,54 @@ class PostController extends Controller
         }
 	}
 
-	public function status(Request $request)
+	public function published(Request $request)
 	{
 		$method_permission = "can_see_posts";
 		if(Auth::user()->hasRole('root') || Auth::user()->can($method_permission) ){
 
-			$posts = Post::where('status', $request->segment(3))->where('type', 'post')->paginate(15);
+			$posts = Post::where('status', 'published')->where('type', 'post')->paginate(15);
+			$postCount = Post::where('type', 'post')->get();
+			$categories = Category::all();
+			$users = User::all();
+            return view('Posts::posts.index',[
+            		"posts" => $posts,
+            		"postCount" => $postCount,
+            		"categories" =>$categories,
+            		"users" => $users
+            	]);
+
+        }else{
+            return view('404');
+        }
+	}
+
+	public function draft(Request $request)
+	{
+		$method_permission = "can_see_posts";
+		if(Auth::user()->hasRole('root') || Auth::user()->can($method_permission) ){
+
+			$posts = Post::where('status', 'draft')->where('type', 'post')->paginate(15);
+			$postCount = Post::where('type', 'post')->get();
+			$categories = Category::all();
+			$users = User::all();
+            return view('Posts::posts.index',[
+            		"posts" => $posts,
+            		"postCount" => $postCount,
+            		"categories" =>$categories,
+            		"users" => $users
+            	]);
+
+        }else{
+            return view('404');
+        }
+	}
+
+	public function trash(Request $request)
+	{
+		$method_permission = "can_see_posts";
+		if(Auth::user()->hasRole('root') || Auth::user()->can($method_permission) ){
+
+			$posts = Post::where('status', 'trash')->where('type', 'post')->paginate(15);
 			$postCount = Post::where('type', 'post')->get();
 			$categories = Category::all();
 			$users = User::all();

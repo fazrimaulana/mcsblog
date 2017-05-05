@@ -24,7 +24,7 @@ class CategoryController extends Controller
 	{
 		$method_permission = "can_see_categories";
 		if(Auth::user()->hasRole('root') || Auth::user()->can($method_permission) ){
-			$categories = Category::all();
+			$categories = Category::paginate(10);
 			$categoriesParent = Category::where('parent', 0)->withCount('posts')->get();
 			
             return view('Posts::categories.index', [

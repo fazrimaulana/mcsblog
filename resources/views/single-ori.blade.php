@@ -43,24 +43,18 @@
           </div><!--END OF .TITLE-->
 
           <div class="form col-md-12 col-sm-12 col-xs-12">
-            <table>
-              <tr>
-                <td>
-                  <input type="text" class="form-control" placeholder="Name...">
-                </td>
-                <td>
-                  <input type="text" class="form-control" placeholder="Email...">
-                </td>
-              </tr>
-            </table>
+            <form method="post">
+            {{ csrf_field() }}
+            <input type="hidden" name="id" value="{{ $post->id }}">
             <div class="form-group">
-              <textarea class="form-control" rows="5" id="comment" placeholder="Write a comment..."></textarea>
+              <textarea class="form-control" rows="5" id="comment" placeholder="Write a comment..." name="content"></textarea>
             </div>
             <div class="submit-comment">
-              <button class="btn btn-lg">
-                <p>SUBMIT</p>
+              <button type="submit" class="btn btn-lg">
+                <p>Send</p>
               </button>
             </div>
+            </form>
           </div><!--END OF .FORM-->
         </div><!--END OF .WR-FORM-COMMENT-->
       </div><!--END OF .FORM-COMMENT-->
@@ -87,61 +81,87 @@
                 <div class="comments-container col-md-12 col-sm-12 col-xs-12">
                     <ul id="comments-list" class="comments-list">
 
-                        @foreach($post->comments as $comment)
+                      @if(count($comments)!=0)
 
-                            @php
-                              $commentParent = $comment->where('parent_id', null)->get();
-                            @endphp
-
-                        @endforeach
-
-                        @foreach($commentParent as $parent)
+                        @foreach($comments as $comment)
 
                         <li>
 
                             <div class="comment-main-level">
                               <!-- Avatar -->
-                              @if($parent->user->usermeta->image!=null)
-                                <div class="comment-avatar"><img src="{{ url($parent->user->usermeta->image) }}" alt=""></div>
+                              @if($comment->user->usermeta->image!=null)
+                                <div class="comment-avatar"><img src="{{ url($comment->user->usermeta->image) }}" alt=""></div>
                               @else
                                 <div class="comment-avatar"><img src="{{ url('/backend/images/profile-pic.jpeg') }}" alt=""></div>
                               @endif
                               <!-- Contenedor del Comentario -->
                               <div class="comment-box">
                                 <div class="comment-head">
-                                  <h6 class="comment-name"><a href="#">{{ $parent->user->name }}</a></h6>
-                                  <span>{{ $parent->created_at->diffForHumans() }}</span>
-                                  <i class="fa fa-reply"></i>
+                                  <h6 class="comment-name"><a href="#">{{ $comment->user->name }}</a></h6>
+                                  <span>{{ $comment->created_at->diffForHumans() }}</span>
+                                  <a href="#input-comment-main_{{ $comment->id }}" data-toggle="collapse">
+                                    <i class="fa fa-reply"></i>
+                                  </a>
                                 </div>
                                 <div class="comment-content">
-                                  {!! $parent->content !!}
+                                  {!! $comment->content !!}
+                                </div>
+                                <div id="input-comment-main_{{ $comment->id }}" class="collapse input-reply">
+
+                                  <form method="post">
+                                    {{ csrf_field() }}
+                                    <div class="form-group">
+                                      <input type="hidden" name="id_comment" value="{{ $comment->id }}">
+                                      <textarea class="form-control" rows="3" id="comment" placeholder="Write a comment..." name="content"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                      <button type="submit" class="btn btn-sm btn-primary">Reply</button>
+                                    </div>
+                                  </form>
+
                                 </div>
                               </div>
                             </div>
 
                             @php
-                              $commentChild = $parent->where('parent_id', $parent->id)->get();
+                              $commentReply = $comment->where('parent_id', $comment->id)->get();
                             @endphp
 
                               <ul class="comments-list reply-list">
-                                @foreach($commentChild as $child)
+                                @foreach($commentReply as $reply)
 
                                 <li>
                                     <!-- Avatar -->
-                                    @if($child->user->usermeta->image!=null)
-                                      <div class="comment-avatar"><img src="{{ url($child->user->usermeta->image) }}" alt=""></div>
+                                    @if($reply->user->usermeta->image!=null)
+                                      <div class="comment-avatar"><img src="{{ url($reply->user->usermeta->image) }}" alt=""></div>
                                     @else
                                       <div class="comment-avatar"><img src="{{ url('/backend/images/profile-pic.jpeg') }}" alt=""></div>
                                     @endif
                                     <!-- Contenedor del Comentario -->
                                     <div class="comment-box">
                                         <div class="comment-head">
-                                            <h6 class="comment-name"><a href="#">{{ $child->user->usermeta->name }}</a></h6>
-                                            <span>{{ $child->created_at->diffForHumans() }}</span>
-                                            <i class="fa fa-reply"></i>
+                                            <h6 class="comment-name"><a href="#">{{ $reply->user->name }}</a></h6>
+                                            <span>{{ $reply->created_at->diffForHumans() }}</span>
+                                            <a href="#input-comment-reply_{{ $reply->id }}" data-toggle="collapse">
+                                              <i class="fa fa-reply"></i>
+                                            </a>
                                         </div>
                                         <div class="comment-content">
-                                            {{ $child->content }}
+                                            {{ $reply->content }}
+                                        </div>
+                                        <div id="input-comment-reply_{{ $reply->id }}" class="collapse input-reply">
+
+                                          <form method="post" >
+                                            {{ csrf_field() }}
+                                            <div class="form-group">
+                                              <input type="hidden" name="id_comment" value="{{ $reply->id }}">
+                                              <textarea class="form-control" rows="3" id="comment" placeholder="Write a comment..." name="content"></textarea>
+                                            </div>
+                                            <div class="form-group">
+                                              <button type="submit" class="btn btn-sm btn-primary">Reply</button>
+                                            </div>
+                                          </form>
+
                                         </div>
                                     </div>
                                 </li>
@@ -153,6 +173,8 @@
 
                         @endforeach
 
+                      @endif
+                      
                     </ul>
                 </div>
             </div><!--END OF .WR-COMMENT-->

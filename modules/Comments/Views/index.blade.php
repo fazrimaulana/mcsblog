@@ -129,7 +129,7 @@
                                         &nbsp<a href="{{ url('/dashboard/comments/change/'.$comment->id.'/bin') }}" style="color: red;" >Bin</a>&nbsp
 
                                     </td>
-                                    <td>{{ $comment->post->title }}</td>
+                                    <td><a href="{{ url(Modules\Settings\Models\Setting::getUrlHome('site_url').'/read/'.$comment->post->slug) }}" target="_blank">{{ $comment->post->title }}</a></td>
                                     <td>{{ $comment->created_at }}</td>
                     			</tr>
                                 <tr id="form_reply{{ $comment->id }}" style="display: none;">
@@ -151,7 +151,7 @@
                                             {{ csrf_field() }}
                                             <input type="hidden" name="id" id="id" class="form-control">
                                             <label class="control-label">Edit Comment</label>
-                                            <textarea name="content" id="content" class="form-control"></textarea>
+                                            <textarea name="content" id="content" class="form-control">{{ $comment->content }}</textarea>
                                             <br />
                                             <button type="submit" class="btn btn-sm btn-primary">Update</button>
                                             <a href="javascript:;" class="btn btn-sm btn-default edit" data-id="{{ $comment->id }}" >Cancel</a>
@@ -161,6 +161,9 @@
                                 @endforeach
                             </tbody>
                         </table>
+
+                        {{ $comments->render() }}
+
                     </div>
                 </div>
 
@@ -281,7 +284,7 @@
             var $form = $('#formEdit_'+id);
 
             $form.find('#id').val(id);
-            $form.find('#content').val("");
+            /*$form.find('#content').val("");*/
 
             $('#form_reply'+id).hide();
             $('#form_edit'+id).toggle();

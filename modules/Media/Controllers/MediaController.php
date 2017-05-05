@@ -65,7 +65,12 @@ class MediaController extends Controller
 			$image_height = $dimension[1];
 			$fulldimension = $image_width." x ".$image_height;
 
-			$path = "uploads";
+			$tahun = date('Y');
+			$bulan = date('m');
+			$tanggal = date('d');
+			$path = "uploads/".$tahun."/".$bulan."/".$tanggal;
+
+			File::makeDirectory($path, $mode = 0777, true, true);
 			
 			$media = new Media;
 			$media->user_id = Auth::user()->id;
@@ -73,7 +78,7 @@ class MediaController extends Controller
 			$media->title = $title;
 
 			if ($request->file('file')->move($path, $fullname)) {
-				$media->save();	
+				$media->save();
 			}
 
 			$mediameta = new Mediameta;
@@ -118,6 +123,8 @@ class MediaController extends Controller
 		$method_permission = "can_edit_media";
 		if(Auth::user()->hasRole('root') || Auth::user()->can($method_permission) || Auth::user()->id==$media->user_id ){
 
+			/*return dd($request->all());*/
+
 			$this->validate($request, [
 					"title" => "required"
 				]);
@@ -126,7 +133,8 @@ class MediaController extends Controller
 					"title" => $request->title,
 					"caption" => $request->caption,
 					"alt" => $request->alt,
-					"description" => $request->description
+					"description" => $request->description,
+					"status" => $request->status
 				]);
 
 			return redirect('/dashboard/media');

@@ -22,7 +22,7 @@ class TagController extends Controller
 		$method_permission = "can_see_tags";
 		if(Auth::user()->hasRole('root') || Auth::user()->can($method_permission) ){
 
-			$tags = Tag::withCount('posts')->get();
+			$tags = Tag::withCount('posts')->paginate(10);
             return view('Posts::tags.index',[
             		"tags" => $tags
             	]);

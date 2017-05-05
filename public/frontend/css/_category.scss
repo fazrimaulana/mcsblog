@@ -1,0 +1,192 @@
+//---------- POST-CATEGORY ----------//
+.post-category {
+
+    //---------- ARTIKEL ----------//
+    .heading-category {
+        .wr-heading-category {
+            h1 {
+                margin: 0px;
+                color: $grey-body;
+                font-family: 'PT Serif', serif;
+                font-size: 38px;
+                font-weight: 400;
+                letter-spacing: 3px;
+                text-align: center;
+            }
+            h1::before {
+                content: "";
+             display: inline-block;
+             height: 0.5em;
+             width: 20%;
+             margin-left: 0%;
+             margin-right: 20px;
+                border-top: 2px solid $grey-body;
+            }
+            h1::after {
+                content: "";
+             display: inline-block;
+             height: 0.5em;
+             width: 20%;
+             margin-right: 0%;
+             margin-left: 20px;
+                border-top: 2px solid $grey-body;
+            }
+            padding: 10px 15px;
+            background-color: $green;
+        }
+        
+        margin-bottom: 30px;
+    }
+
+    //---------- ARTIKEL ----------//
+    .artikel {
+        p {
+            font-size: 16px;
+            font-family: 'PT Serif', serif;
+            letter-spacing: 3px;    
+            margin: 0px;
+            color: $grey-text;
+        }
+        .type-tag {
+            p::before {
+                content: "";
+             display: inline-block;
+             height: 0.5em;
+             width: 8%;
+             margin-left: 0%;
+             margin-right: 20px;
+                border-top: 2px solid $grey-text;
+            }
+            p::after {
+                content: "";
+             display: inline-block;
+             height: 0.5em;
+             width: 8%;
+             margin-right: 0%;
+             margin-left: 20px;
+                border-top: 2px solid $grey-text;
+            }
+        }
+        .title {
+            h1 {
+                font-size: 38px;
+                font-weight: 400;
+                color: $black;
+                margin: 0px;
+            }
+            margin: 15px 0px 25px;
+        }
+        .image {
+            img {
+                width: 100%;
+                height: 600px;
+                filter: brightness(70%);
+                -webkit-filter: brightness(70%);
+                -moz-filter: brightness(70%);
+                -ms-filter: brightness(70%);
+                -o-filter: brightness(70%);
+                -webkit-transition: 1s ease;
+                -moz-transition: 1s ease;
+                -ms-transition: 1s ease;
+                -o-transition: 1s ease;
+                transition: 1s ease;
+            }
+            img:hover {
+                filter: brightness(100%);
+                -webkit-filter: brightness(100%);
+                -moz-filter: brightness(100%);
+                -ms-filter: brightness(100%);
+                -o-filter: brightness(100%);
+                -webkit-transform: scale(1.08);
+                -moz-transform: scale(1.08);
+                -ms-transform: scale(1.08);
+                -o-transform: scale(1.08);
+                transform: scale(1.08);
+            }
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 10px;
+            padding: 0px;
+            height: 600px;
+        }
+        .detail {
+            p {
+                letter-spacing: 0px;
+                font-family: 'Open Sans', sans-serif; 
+                font-weight: 600;
+                color: $dark-grey;
+            }
+            margin-bottom: 20px;
+            padding: 20px 15px;
+               border-bottom: 2px solid $grey-body;
+        }
+        .artikel-footer {
+            .footer-left {
+                .comment {
+                    a {
+                        color: $grey-text;
+                        -webkit-transition: .2s color ease-in;
+                        -moz-transition: .2s color ease-in;
+                        -ms-transition: .2s color ease-in;
+                        -o-transition: .2s color ease-in;
+                        transition: .2s color ease-in;
+                    }
+                    a:hover {
+                        text-decoration: none;
+                        color: $green;
+                    }
+                }
+                padding: 0px;
+            }
+            .footer-right {
+                p {
+                    font-family: 'Open Sans', sans-serif;
+                    letter-spacing: 0px;    
+                }
+                a {
+                    color: $black;
+                    font-weight: 700;
+                    -webkit-transition: .2s color ease-in;
+                    -moz-transition: .2s color ease-in;
+                    -ms-transition: .2s color ease-in;
+                    -o-transition: .2s color ease-in;
+                    transition: .2s color ease-in;
+                }
+                a:hover {
+                    text-decoration: none;
+                    color: $green;
+                }
+            }
+        }
+        background-color: #fff;
+        padding: 30px 0px;
+        margin-bottom: 30px;
+        box-shadow: $shadow-artikel;
+    }
+
+    //---------- NAVIGATION ----------//
+    #div1 {
+        .pager {
+            li {
+                a {
+                    color: $dark-grey;
+                    -webkit-transition: .2s background-color ease-in, .2s color ease-in;
+                    -moz-transition: .2s background-color ease-in, .2s color ease-in;
+                    -ms-transition: .2s background-color ease-in, .2s color ease-in;
+                    -o-transition: .2s background-color ease-in, .2s color ease-in;
+                    transition: .2s background-color ease-in, .2s color ease-in;
+                }
+                a.active {
+                    color: $grey-body;
+                    background-color: $green;
+                }
+                a:hover {
+                    color: $grey-body;
+                    background-color: $green;
+                }
+            }
+        }
+    }
+    margin-bottom: 50px;
+    padding-top: 130px;
+}

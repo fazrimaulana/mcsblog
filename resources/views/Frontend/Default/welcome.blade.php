@@ -29,7 +29,7 @@
             <img class="wrapper-img" src="{{ url($post->image) }}">
           </div><!--END OF .IMAGE-->
           <div class="detail col-md-12 col-sm-12 col-xs-12">
-            {!! $post->content !!}
+            {!! str_replace("../../../","",$post->content) !!}
           </div><!--END OF .DETAIL-->
           <div class="artikel-footer">
             <div class="footer-left col-md-10 col-sm-10 col-xs-12">
@@ -45,7 +45,7 @@
               <div class="clearfix"></div>
             </div>
             <div class="footer-right col-md-2 col-sm-2 col-xs-12">
-              <p class="pull-right"><a href="{{ url(Modules\Settings\Models\Setting::getUrlHome('site_url').'/'.$post->slug) }}">READ MORE...</a></p>
+              <p class="pull-right"><a href="{{ url(Modules\Settings\Models\Setting::getUrlHome('site_url').'/read/'.$post->slug) }}">READ MORE...</a></p>
             </div>
             <div class="clearfix"></div>
           </div><!--END OF .ARTIKEL-FOOTER-->

@@ -1,0 +1,96 @@
+//---------- CONTACT-US ----------//
+.contact-us {
+
+    //---------- MAP ----------//
+    .map {
+        .wr-map {
+            .map-detail {
+                margin-bottom: 30px;
+            }
+             .info {
+                i {
+                    color: $green;
+                    margin-bottom: 10px;
+                }
+                p {
+                    font-family: 'PT Serif', serif;
+                    font-size: 16px;
+                    letter-spacing: 3px;
+                    color: $grey-text;
+                    -webkit-transition: .2s color ease-in;
+                    -moz-transition: .2s color ease-in;
+                    -ms-transition: .2s color ease-in;
+                    -o-transition: .2s color ease-in;
+                    transition: .2s color ease-in;
+                }
+                a {
+                    color: $grey-text;
+                    font-family: 'Open Sans', sans-serif;
+                    font-weight: 600;
+                }
+                a:hover {
+                    text-decoration: none;
+                    color: $green;
+                }
+            }
+            background-color: #fff;
+            padding: 30px 15px;
+            box-shadow: $shadow-artikel;
+        }
+        margin-bottom: 30px;
+    }
+
+    //---------- FORM-CONTACT ----------//
+    .form-contact {
+        .wr-form-contact {
+            .title {
+                h1 {
+                    margin: 0px 0px 20px;
+                    font-weight: 400;
+                    font-family: 'Open Sans', sans-serif;
+                    font-size: 38px;
+                }
+                border-bottom: 1px solid $grey-text;
+                margin-bottom: 30px;
+            }
+            .form {
+                .input-info {
+                    input {
+                        height: 50px;
+                    }
+                    margin-bottom: 20px;
+                }
+                .message {
+                    textarea {
+                        padding: 15px;
+                    }
+                }
+                .submit-message {
+                    button {
+                        p {
+                            margin: 0px;
+                            font-size: 16px;
+                            font-weight: 600;
+                            color: $grey-body;
+                        }
+                        background-color: $green;
+                        border: none;
+                        -webkit-transition: .2s box-shadow ease-in;
+                        -moz-transition: .2s box-shadow ease-in;
+                        -ms-transition: .2s box-shadow ease-in;
+                        -o-transition: .2s box-shadow ease-in;
+                        transition: .2s box-shadow ease-in;
+                    }
+                    button:hover {
+                        box-shadow: $shadow-artikel;
+                    }
+                }
+            }
+            padding: 30px 15px;
+            background-color: #fff;
+            box-shadow: $shadow-artikel;
+        }
+        margin-bottom: 50px;
+    }
+    padding-top: 130px;
+}

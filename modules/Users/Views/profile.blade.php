@@ -129,32 +129,6 @@
                         </div>
                         <br />
 
-                        <!-- <label class="label-control">Email</label>
-                        <div class="control-group">
-                            <div class="controls">
-                                <div class="input-group">
-                                    <span class="input-group-addon" id="basic-addon1">
-                                        <i class="fa fa-envelope" aria-hidden="true"></i>
-                                    </span>
-                                    <input type="text" class="form-control" placeholder="*Email" aria-describedby="basic-addon1" name="email" value="{{ $user->email }}">
-                                </div>
-                            </div>
-                        </div>
-                        <br />
-
-                        <label class="label-control">Password</label>
-                        <div class="control-group">
-                            <div class="controls">
-                                <div class="input-group">
-                                    <span class="input-group-addon" id="basic-addon1">
-                                        <i class="fa fa-key" aria-hidden="true"></i>
-                                    </span>
-                                    <input type="password" class="form-control" placeholder="*Password" aria-describedby="basic-addon1" name="password">
-                                </div>
-                            </div>
-                        </div>
-                        <br /> -->
-
                         <label class="label-control">Role</label>
                         <div class="control-group">
                             <div class="controls">

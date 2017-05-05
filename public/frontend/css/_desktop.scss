@@ -1,9 +1,10 @@
 $black: #29292A;
 $green: #48cfad;
+$yellow: #FFB65F;
 $grey-body: #e3e3e3;
 $grey-text: #b6b6b6;
 $dark-grey: #888888;
-$shadow-artikel: 3px 3px 5px grey;
+$shadow-artikel: 3px 3px 5px rgba(41, 41,42, .5);
 
 body {
     h1, h2, h3 {
@@ -69,24 +70,27 @@ body {
                         a:hover {
                             color: $grey-body;
                             background-color: $green;
-                        }
+                        }   
+                        top: 80px;
                     }
                     .dropdown-menu::before {
                         content: "";
                     position: absolute;
-                    top: -34%;
+                    top: -30px;
                     left: 70%;
-                    margin-left: -5px;
                     border-width: 15px;
                     border-style: solid;
                     border-color: transparent transparent #fff transparent;
                     }
                 }
             }
+            padding: 0px;
         }
         height: 80px;
         background-color: $black;
         border: none;
+        margin-bottom: 0px;
+        box-shadow: 0px 3px 3px rgba(41, 41,42, .5);
     }
     .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:focus, .navbar-default .navbar-nav > .open > a:hover {
         background-color: $green;
@@ -117,6 +121,10 @@ body {
 position: fixed;
 width: 100%;  
 z-index: 999;
+}
+
+.input-search {
+    padding: 0px;
 }
 
 //---------- OPENING ----------//
@@ -584,6 +592,21 @@ z-index: 999;
                     }
                 }
                 padding-bottom: 20px;
+                margin-bottom: 30px;
+            }
+
+            .search {
+                button {
+                    i {
+                        color: $dark-grey;
+                    }
+                }
+                button:hover {
+                    i {
+                        color: $grey-body;
+                    }
+                    background-color: $green;
+                }
             }
             padding-left: 30px;
             padding-right: 0px;

@@ -92,18 +92,6 @@
                         <label for="Icon">Icon</label>
                         <input type="text" class="form-control" id="icon" name="icon" placeholder="Enter Icon">
                     </div>
-                    <!-- <div class="form-group">
-                        <label for="Module">Module</label>
-                        <input type="text" class="form-control" id="module" name="module" placeholder="Enter Module">
-                    </div>
-                    <div class="form-group">
-                        <label for="Permission">Permission</label>
-                        <input type="text" class="form-control" id="permission" name="permission" placeholder="Enter Permission">
-                    </div>
-                    <div class="form-group">
-                        <label for="Sequence">Sequence</label>
-                        <input type="text" class="form-control" id="sequence" name="sequence" placeholder="Enter Sequence">
-                    </div> -->
                     <button type="submit" class="btn btn-4">Save</button>
                 </form>
                 
@@ -126,7 +114,6 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-
                                     @php
                                         use Modules\Appearance\Models\Frontmenu;
                                     @endphp

@@ -2,7 +2,6 @@
 
 Route::group(['middleware'=>['web', 'auth'],'prefix' => 'dashboard'], function() {
 
-
 	Route::group(['prefix' => 'themes'], function(){
 
 		Route::get('/', [
@@ -39,6 +38,25 @@ Route::group(['middleware'=>['web', 'auth'],'prefix' => 'dashboard'], function()
 			'uses' => 'Modules\Appearance\Controllers\MenuController@delete'
 		]);
 
+
+	});
+
+	Route::group(['prefix' => 'frontpage'], function(){
+
+		Route::get('/', [
+			'as' => 'dashboard.appearance.frontpage', 
+			'uses' => 'Modules\Appearance\Controllers\FrontpageController@index'
+		]);
+
+		Route::post('/', [
+			'as' => 'dashboard.appearance.frontpage.about', 
+			'uses' => 'Modules\Appearance\Controllers\FrontpageController@about'
+		]);
+
+		Route::post('/contact', [
+			'as' => 'dashboard.appearance.frontpage.contact', 
+			'uses' => 'Modules\Appearance\Controllers\FrontpageController@contact'
+		]);
 
 	});
 

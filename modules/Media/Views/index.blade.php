@@ -1,5 +1,11 @@
 @extends('layouts.backend')
 
+@section('css')
+    
+    <link rel="stylesheet" type="text/css" href="{{ url('/backend/assets/iCheck/skins/square/green.css') }}">
+
+@endsection
+
 @section('content')
         <!-- HEADER-POST -->
         <div class="header-title">
@@ -86,6 +92,13 @@
                                                         </div>
                                                     </div>
                                                     <div class="form-group row">
+                                                        <label for="Uploaded By" class="col-md-4 col-form-label">Status</label>
+                                                        <div class="col-md-8">
+                                                            <input type="radio" name="status" value="public" @if($media->status=="public") checked @endif > Public
+                                                            <input type="radio" name="status" value="private" @if($media->status=="private") checked @endif > Private
+                                                        </div>
+                                                    </div>                                             
+                                                    <div class="form-group row">
                                                         <label for="Uploaded By" class="col-md-4 col-form-label">Uploaded By</label>
                                                         <div class="col-md-8">
                                                             <label for="Uploaded By" class="control-label">{{ $media->user->name }}</label>
@@ -130,6 +143,8 @@
 @endsection
 
 @section('javascript')
+
+    <script src="{{ url('/backend/assets/iCheck/icheck.js') }}" type="text/javascript"></script>
 	
 	<script type="text/javascript">
 
@@ -142,6 +157,12 @@
                 "backdrop" : "static"
             });
 
+        });
+
+        $('input').iCheck({
+            checkboxClass: 'icheckbox_square-green',
+            radioClass: 'iradio_square-green',
+            increaseArea: '20%' // optional
         });
 
 	</script>

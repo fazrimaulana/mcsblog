@@ -9,7 +9,16 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Admin Panel</title>
+    <title>
+        
+            @php
+                use Modules\Settings\Models\Setting;
+                $site_title = Setting::where('setting_name', 'site_title')->first();
+            @endphp
+
+            {{ $site_title->setting_value }}
+
+    </title>
 
     <!-- Bootstrap Core CSS -->
     <link href="{{ url('/backend/css/bootstrap.min.css') }}" rel="stylesheet">

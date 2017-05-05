@@ -61,61 +61,11 @@
                         <ul class="nav navbar-nav nav-pills navbar-right">
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fa fa-envelope fa-lg" aria-hidden="true"></i>
-                                    <span class="badge message">42</span>
-                                </a>
-                                <ul class="dropdown-menu dropdown-notification">
-                                    <div class="header-notification text-center">
-                                        <li><p>You have 42 Message</p></li>
-                                    </div>
-                                    <div class="list-notification">
-                                        <li>
-                                            <a href="#">
-                                                <div class="gambar col-md-1 col-sm-1 col-xs-1">
-                                                    <img src="{{ url('/backend/images/icon-user.jpeg') }}">
-                                                </div>
-                                                <div class="font col-md-10 col-sm-10 col-xs-10">
-                                                    <p><strong>Nama_User</strong> sent you an image.</p>
-                                                    <i>1 minute ago</i>
-                                                </div>
-                                            </a>
-                                        </li>
-                                    </div>
-                                    <div class="footer-notification text-center">
-                                        <li><a href="#">Inbox</a></li>
-                                    </div>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fa fa-bell fa-lg" aria-hidden="true"></i>
-                                    <span class="badge notification">42</span>
-                                </a>
-                                <ul class="dropdown-menu dropdown-notification">
-                                    <div class="header-notification text-center">
-                                        <li><p>You have 42 Notification</p></li>
-                                    </div>
-                                    <div class="list-notification">
-                                        <li>
-                                            <a href="#">
-                                                <div class="gambar col-md-1 col-sm-1 col-xs-1">
-                                                    <img src="{{ url('/backend/images/icon-user.jpeg') }}">
-                                                </div>
-                                                <div class="font col-md-10 col-sm-10 col-xs-10">
-                                                    <p><strong>Nama_User</strong> sent you an image.</p>
-                                                    <i>1 minute ago</i>
-                                                </div>
-                                            </a>
-                                        </li>
-                                    </div>
-                                    <div class="footer-notification text-center">
-                                        <li><a href="#">View all</a></li>
-                                    </div>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                    <img src="{{ url('/backend/images/icon-user.jpeg') }}">
+                                    @if(Auth::user()->usermeta->image==null)
+                                        <img src="{{ url('/backend/images/icon-user.jpeg') }}">
+                                    @else
+                                        <img src="{{ url(Auth::user()->usermeta->image) }}">
+                                    @endif
                                     <strong>{{ Auth::user()->usermeta->display_name }}</strong>
                                 </a>
                                 <ul class="dropdown-menu dropdown-user" id="user">
@@ -157,7 +107,11 @@
                 <div class="user">
                     <a href="#">
                         <div class="images col-md-4 col-sm-4 col-xs-4">
-                            <img src="{{ url('/backend/images/admin.jpeg') }}">
+                            @if(Auth::user()->usermeta->image==null)
+                                <img src="{{ url('/backend/images/admin.jpeg') }}">
+                            @else
+                                <img src="{{ url(Auth::user()->usermeta->image) }}">
+                            @endif
                         </div>
                         <div class="font col-md-8 col-sm-8 col-xs-8">
                             <p>Welcome</p>

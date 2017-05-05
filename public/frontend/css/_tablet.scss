@@ -11,6 +11,11 @@
                    li {
                        padding: 15px 0px;
                    }
+                   .dropdown {
+                       .dropdown-menu {
+                           top: 54px !important;
+                       }
+                   }
                }
                .navbar-right {
                    li {
@@ -261,6 +266,186 @@
                     width: 559px !important;
                  }
              }
+        }
+        padding-top: 175px !important;
+    }
+
+    //---------- ABOUT ----------//
+    .about-page {
+
+        //----------OUR-TEAM----------//
+        .our-team {
+            .content-slider {
+                .team-list {
+                    width: 300px !important;
+                    padding: 80px !important;
+                }
+            }
+        }
+        padding-top: 175px !important;
+    }
+
+    //---------- GALLERY ----------//
+    .gallery {
+        .image {
+            .wr-image {
+                .title {
+                    h1 {
+                        font-size: 32px !important;
+                    }
+                }
+                .list-image {
+                    .photo {
+                        .wr-photo {
+                            img {
+                                height: 160px !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        padding-top: 175px !important;
+    }
+
+    //---------- CONTACT-US ----------//
+    .contact-us {
+        
+        //---------- MAP ----------//
+        .map {
+            .wr-map {
+                .map-detail {
+                    iframe {
+                        width: 720px !important;
+                    }
+                }
+                .info {
+                    p {
+                        font-size: 14px !important;
+                    }
+                }
+            }
+        }
+
+        .form-contact {
+            .wr-form-contact {
+                .title {
+                    h1 {
+                        font-size: 32px !important;
+                    }
+                }
+                .form {
+                    input {
+                        height: 40px !important;
+                    }
+                    .submit-message {
+                        p {
+                            font-size: 14px !important;
+                        }
+                    }
+                }
+            }
+        }
+        padding-top: 175px !important;
+    }
+
+    //---------- USER-PROFILE ----------//
+    .user-profile {
+
+        .user-info {
+            .wr-user-info {
+                .title {
+                    h1 {
+                        font-size: 32px !important;
+                    }
+                }
+                .content {
+                    .info-detail {
+                        tr {
+                            td{
+                                width: 250px !important;
+                                padding-left: 30px !important;
+                            }
+                        }
+                    }
+                    .editing {
+                        a {
+                            font-size: 14px !important;
+                        }
+                    }
+                }
+            }
+        }
+        padding-top: 175px !important;
+    }
+
+    //---------- ACCOUNT-SET ----------//
+    .account-set {
+
+        .form-account {
+            .wr-form-account {
+                .title {
+                    h1 {
+                        font-size: 32px !important;
+                    }
+                }
+                .body-form {
+                    .middle {
+                        .change-pic {
+                            button {
+                                p {
+                                    font-size: 14px !important;
+                                }
+                            }
+                        }
+                        .form {
+                            form {
+                                table {
+                                    button#update, button#reset {
+                                        p {
+                                            font-size: 14px !important;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        padding-top: 175px !important;
+    }
+
+    //---------- POST-CATEGORY ----------//
+    .post-category {
+        .heading-category {
+            .wr-heading-category {
+                h1 {
+                    font-size: 32px !important;
+                }
+                h1::before {
+                    width: 15% !important;
+                }
+                h1::after {
+                    width: 15% !important;
+                }
+            }
+        }
+        .artikel {
+            p {
+                font-size: 14px !important;
+            }
+            .title {
+                h1 {
+                    font-size: 32px !important;
+                }
+            }
+            .image {
+                img {
+                    height: 400px !important;
+                }
+                height: 400px !important;
+            }
         }
         padding-top: 175px !important;
     }

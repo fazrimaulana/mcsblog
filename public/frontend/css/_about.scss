@@ -1,0 +1,170 @@
+//---------- ABOUT ----------//
+.about-page {
+    .information {
+        .wr-information {
+            p {
+                font-weight: 600;
+                color: $dark-grey;
+                font-size: 16px;
+                font-family: 'Open Sans', sans-serif;
+            }
+            .title {
+                h1 {
+                    font-size: 38px;
+                    font-weight: 400;
+                    color: $black;
+                    margin: 0px;
+                }
+                margin-bottom: 20px;
+            }
+            .visi, .misi {
+                h3 {
+                    font-weight: 400;
+                }
+            }
+        }
+        padding: 30px 15px;
+        margin-bottom: 30px;
+        background-color: #fff;
+        box-shadow: $shadow-artikel;
+    }
+
+    //----------OUR-TEAM----------//
+    .our-team {
+        .title-our-team {
+            h1 {
+                font-size: 38px;
+                color: $black;
+                font-weight: 400;
+                margin: 0px;
+            }
+            margin-bottom: 30px;
+        }
+        .content-slider {
+            .bx-wrapper {
+                .bx-pager {
+                    .bx-pager-item {
+                        .bx-pager-link {
+                            background-color: $dark-grey;
+                        }
+                    }    
+                }
+                border: none;
+                box-shadow: none;
+                margin: auto;
+            }
+            .bx-wrapper .bx-pager.bx-default-pager a:hover, .bx-wrapper .bx-pager.bx-default-pager a.active, .bx-wrapper .bx-pager.bx-default-pager a:focus {
+                background-color: $green;
+                border-radius: 50%;
+                transition: .2s background-color ease-in;
+                -webkit-transition: .2s background-color ease-in;
+                -moz-transition: .2s background-color ease-in;
+                -ms-transition: .2s background-color ease-in;
+                -o-transition: .2s background-color ease-in;
+            }
+            .team-list {
+                h4, p {
+                    color: $dark-grey;
+                    font-weight: 600;
+                }
+                .pic-profil {
+                    img {
+                        margin-left: auto;
+                        margin-right: auto;
+                        filter: brightness(70%);
+                        -webkit-filter: brightness(70%);
+                        -moz-filter: brightness(70%);
+                        -ms-filter: brightness(70%);
+                        -o-filter: brightness(70%);
+                    }
+                }
+                .user-name {
+                    border-bottom: 1px solid #eaeaea;
+                    margin-bottom: 10px;
+                }
+                .personal-info {
+                    p {
+                        font-family: 'PT Serif', serif;
+                    }
+                    i {
+                        color: $green;
+                    }
+                }
+                padding: 90px;
+            }
+            .team-list:hover {
+                img {
+                    filter: brightness(100%);
+                    -webkit-filter: brightness(100%);
+                    -moz-filter: brightness(100%);
+                    -ms-filter: brightness(100%);
+                    -o-filter: brightness(100%);
+                }
+                border-top: 5px solid $green;
+                transition: .2s border-top ease-in;
+                -webkit-transition: .2s border-top ease-in;
+                -moz-transition: .2s border-top ease-in;
+                -ms-transition: .2s border-top ease-in;
+                -o-transition: .2s border-top ease-in;
+            }
+            .bx-controls-direction {
+                .next-list {
+                    .bx-next {
+                        .border-custom {
+                            border: 1px solid $dark-grey;
+                            padding: 10px;
+                            transition: .2s border ease-in;
+                            -webkit-transition: .2s border ease-in;
+                            -moz-transition: .2s border ease-in;
+                            -ms-transition: .2s border ease-in;
+                            -o-transition: .2s border ease-in;
+                        }
+                        .border-custom:hover {
+                            border: 1px solid $green;
+                        }
+                    }
+                }
+                .prev-list {
+                    .bx-prev {
+                        .border-custom {
+                            border: 1px solid $dark-grey;
+                            padding: 10px;
+                            transition: .2s border ease-in;
+                            -webkit-transition: .2s border ease-in;
+                            -moz-transition: .2s border ease-in;
+                            -ms-transition: .2s border ease-in;
+                            -o-transition: .2s border ease-in;
+                        }
+                        .border-custom:hover {
+                            border: 1px solid $green;
+                        }
+                    }
+                }
+                .bx-next, .bx-prev {
+                    color: $dark-grey;
+                    position: relative;
+                    top: 70px;
+                    transition: .2s color ease-in;
+                    -webkit-transition: .2s color ease-in;
+                    -moz-transition: .2s color ease-in;
+                    -ms-transition: .2s color ease-in;
+                    -o-transition: .2s color ease-in;
+                }
+                .bx-prev {
+                    float: right;
+                }
+                .bx-prev:hover {
+                    text-decoration: none;
+                    color: $green;
+                }
+                .bx-next:hover {
+                    text-decoration: none;
+                    color: $green;
+                }
+            }
+        }
+        background-color: #fff;
+        padding: 30px 0px 50px;
+    }
+    padding: 130px 0px 0px;
+}

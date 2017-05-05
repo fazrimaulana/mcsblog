@@ -111,6 +111,9 @@
                     		@endforeach
                     	</tbody>
                     </table>
+
+                    {{ $categories->render() }}
+
                     </div>
                 </div>
             </div>

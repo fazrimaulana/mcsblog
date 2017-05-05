@@ -11,7 +11,7 @@ class Media extends Model
 	protected $primarykey = "id";
 
 	protected $fillable = [
-		"user_id", "url", "title", "caption", "alt", "description"
+		"user_id", "url", "title", "caption", "alt", "description", "status"
 	];
 
 	public function mediameta()

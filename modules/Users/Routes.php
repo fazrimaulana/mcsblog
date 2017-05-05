@@ -57,32 +57,32 @@ Route::group(['middleware'=>['web', 'auth'],'prefix' => 'dashboard'], function()
 
 		Route::get('/root', [
 				'as' => 'dashboard.users.root',
-				'uses' => 'Modules\Users\Controllers\UserController@status'
+				'uses' => 'Modules\Users\Controllers\UserController@root'
 			]);
 
 		Route::get('/subscriber', [
 				'as' => 'dashboard.users.subscriber',
-				'uses' => 'Modules\Users\Controllers\UserController@status'
+				'uses' => 'Modules\Users\Controllers\UserController@subscriber'
 			]);
 
 		Route::get('/contributor', [
 				'as' => 'dashboard.users.contributor',
-				'uses' => 'Modules\Users\Controllers\UserController@status'
+				'uses' => 'Modules\Users\Controllers\UserController@contributor'
 			]);
 
 		Route::get('/author', [
 				'as' => 'dashboard.users.author',
-				'uses' => 'Modules\Users\Controllers\UserController@status'
+				'uses' => 'Modules\Users\Controllers\UserController@author'
 			]);
 
 		Route::get('/editor', [
 				'as' => 'dashboard.users.editor',
-				'uses' => 'Modules\Users\Controllers\UserController@status'
+				'uses' => 'Modules\Users\Controllers\UserController@editor'
 			]);
 
 		Route::get('/administrator', [
 				'as' => 'dashboard.users.administrator',
-				'uses' => 'Modules\Users\Controllers\UserController@status'
+				'uses' => 'Modules\Users\Controllers\UserController@administrator'
 			]);
 
 		Route::post('/change-role', [

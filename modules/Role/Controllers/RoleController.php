@@ -25,7 +25,7 @@ class RoleController extends Controller
 		$method_permission = "can_see_role";
 		if(Auth::user()->hasRole('root') || Auth::user()->can($method_permission) ){
 
-            $roles = Role::all();
+            $roles = Role::paginate(10);
 			return view('Role::role.index',[
 				"roles" => $roles
 			]);

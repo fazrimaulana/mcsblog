@@ -36,6 +36,9 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    @yield('css')
+
   </head>
   <body>
 
@@ -44,17 +47,21 @@
       use Modules\Posts\Models\Post;
       use Modules\Posts\Models\Category;
       use Modules\Posts\Models\Tag;
+      use Modules\Appearance\Models\Frontmenu;
+      use Modules\Appearance\Models\Frontpage;
 
       $categories = Category::all();
       $tags       = Tag::all();
       $popular_posts = Post::where('type', 'post')->orderBy('view_count', 'desc')->paginate(3);
       $recent_posts = Post::where('type', 'post')->orderBy('published_at', 'desc')->paginate(3);
+      $frontmenus = Frontmenu::where('parent_id', null)->get();
+      $about = Frontpage::where('name', 'about')->first();
 
     @endphp
 
     <div class="header">
       <nav class="navbar navbar-default navbar-custom">
-        <div class="wr-navbar container-fluid">
+        <div class="wr-navbar container">
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed open" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -69,39 +76,65 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Gallery</a></li>
-              <li><a href="#">Contact Us</a></li>
+              <li class="{{ strpos(Route::currentRouteName(), 'frontend.index') === 0 ? 'active' : '' }}"><a href="{{ url(Modules\Settings\Models\Setting::getUrlHome('site_url')) }}">Home <span class="sr-only">(current)</span></a></li>
+              <li class="{{ strpos(Route::currentRouteName(), 'frontend.about') === 0 ? 'active' : '' }}"><a href="{{ url(Modules\Settings\Models\Setting::getUrlHome('site_url').'/about') }}">About</a></li>
+              <li class="{{ strpos(Route::currentRouteName(), 'frontend.gallery') === 0 ? 'active' : '' }}">
+                <a href="{{ url(Modules\Settings\Models\Setting::getUrlHome('site_url').'/gallery') }}">Gallery</a>
+              </li>
+              <li class="{{ strpos(Route::currentRouteName(), 'frontend.contact') === 0 ? 'active' : '' }}">
+                <a href="{{ url(Modules\Settings\Models\Setting::getUrlHome('site_url').'/contact') }}">Contact Us</a>
+              </li>
+
+              @if($frontmenus)
+                @foreach($frontmenus as $menu)
+
+                  @php
+                      $childmenu = Frontmenu::where('parent_id', $menu->menu_id)->get();
+                  @endphp
+
+                  @if(count($childmenu)!=0)
+                      <li class="dropdown">
+                        
+                          <a href="{{ $menu->href }}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            {{ $menu->name }}
+                          </a>
+                          <ul class="dropdown-menu">
+
+                            @foreach($childmenu as $child)
+                              <li>
+                                <a href="{{ url(Modules\Settings\Models\Setting::getUrlHome('site_url').'/read'.$child->href) }}">{{ $child->name }}</a>
+                              </li>
+                            @endforeach
+
+                          </ul>
+
+                      </li>
+                  @else
+                    <li>
+                      <a href="{{ url(Modules\Settings\Models\Setting::getUrlHome('site_url').'/read'.$menu->href) }}">{{ $menu->name }}</a>
+                    </li>
+                  @endif
+
+                @endforeach
+              @endif
+
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li>
-                <div class="input-group">
-                  <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">
-                      <i class="fa fa-search" aria-hidden="true"></i>
-                    </button>
-                  </span>
-                  <input type="text" class="form-control" placeholder="Search for...">
-                </div><!-- /input-group -->
-              </li>
-              <!-- <li><a href="#">Sign In</a></li>
-              <li><a href="#">Sign Up</a></li> -->
               @if(Auth::user())
-              <li class="dropdown">
+              <li class="dropdown {{ strpos(Route::currentRouteName(), 'frontend.user') === 0 ? 'active' : '' }}">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                   <i class="fa fa-user" aria-hidden="true"></i> {{ Auth::user()->name }}
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a href="#">User Profile</a></li>
-                  <li><a href="#">Account Setting</a></li>
+                  <li><a href="{{ url('/profile') }}">User Profile</a></li>
+                  <li><a href="{{ url('/account-setting') }}">Account Setting</a></li>
                   <li><a href="{{ url('/logoutUser') }}" onclick="event.preventDefault();
                   document.getElementById('logout-form').submit();">Log Out</a></li>
 
                   <form id="logout-form" action="{{ url('/logoutUser') }}" method="POST" style="display: none;">
                   {{ csrf_field() }}
                   </form>
-
+                  
                 </ul>
               </li>
               @endif
@@ -132,15 +165,6 @@
           </div><!--END OF .CATEGORY-->
 
           <div class="about">
-            <div class="title">
-              <h3>ABOUT</h3>
-            </div><!--END OF .TITLE-->
-            <div class="detail">
-              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-                when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-              </p>
-            </div><!--END OF .DETAIL-->
             <div class="sosmed">
               <ul class="nav nav-pills">
                 <li role="presentation">
@@ -170,7 +194,7 @@
                 <div class="image">
                   <img class="img-responsive" src="{{ url($popular->image) }}">
                 </div>
-                <a href="{{ url('/'.$popular->slug) }}">{{ $popular->title }}</a>
+                <a href="{{ url('/read/'.$popular->slug) }}">{{ $popular->title }}</a>
               </div><!--END OF .WR-POPULAR-->
             @endforeach
           </div><!--END OF .POPULAR-POST-->
@@ -184,7 +208,7 @@
                 <div class="image">
                   <img class="img-responsive" src="{{ url($recent->image) }}">
                 </div>
-                <a href="{{ url('/'.$recent->slug) }}">{{ $recent->title }}</a>
+                <a href="{{ url('/read/'.$recent->slug) }}">{{ $recent->title }}</a>
               </div><!--END OF .WR-POPULAR-->
             @endforeach
           </div><!--END OF .RECENT-POST-->
@@ -239,5 +263,8 @@
           });
       });
     </script>
+
+    @yield('javascript')
+
   </body>
 </html>

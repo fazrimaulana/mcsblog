@@ -2,6 +2,7 @@
 
 @section('css')
     
+    <link rel="stylesheet" type="text/css" href="{{ url('/backend/assets/iCheck/skins/square/green.css') }}">
 
 @endsection
 
@@ -56,6 +57,15 @@
                     @endif
                 </div>
 
+                <div class="input-group-lg">
+                    <label class="label-control">Status</label><br />
+                    <input type="radio" name="status" value="public" @if($media->status=="public") checked @endif > Public
+                    <input type="radio" name="status" value="private" @if($media->status=="private") checked @endif> Private
+                    @if($errors->has('status'))
+                        <span style="color: red;">{{ $errors->first('status') }}</span>
+                    @endif
+                </div>
+
             </div><!--END OF TEXT-POST-->
 
             <div class="type-post col-md-4 col-sm-5">
@@ -105,5 +115,16 @@
 
 @section('javascript')
 
+    <script src="{{ url('/backend/assets/iCheck/icheck.js') }}" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        
+        $('input').iCheck({
+            checkboxClass: 'icheckbox_square-green',
+            radioClass: 'iradio_square-green',
+            increaseArea: '20%' // optional
+        });
+
+    </script>
     
 @stop

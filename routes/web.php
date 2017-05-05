@@ -15,9 +15,25 @@ use Modules\Settings\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-Route::get(Setting::getUrlHome('site_url'), 'FrontendController@index');
+Route::get(Setting::getUrlHome('site_url'), ['as' => 'frontend.index', 'uses'=>'FrontendController@index']);
 
-Route::get(Setting::getUrlHome('site_url').'/{slug}', 'FrontendController@single');
+Route::get(Setting::getUrlHome('site_url').'/read/{slug}', ['as' => 'frontend.read', 'uses' => 'FrontendController@single']);
+
+Route::post(Setting::getUrlHome('site_url').'/read/{slug}', ['as' => 'frontend.read', 'uses' => 'FrontendController@comment'])->middleware('auth');
+
+Route::get(Setting::getUrlHome('site_url').'/profile', ['as' => 'frontend.user', 'uses' => 'FrontendController@profile'])->middleware('auth');
+
+Route::get(Setting::getUrlHome('site_url').'/account-setting', ['as' => 'frontend.account.setting', 'uses' => 'FrontendController@accountSetting'])->middleware('auth');
+
+Route::get(Setting::getUrlHome('site_url').'/about', ['as' => 'frontend.about', 'uses' => 'FrontendController@about']);
+
+Route::get(Setting::getUrlHome('site_url').'/gallery', ['as' => 'frontend.gallery', 'uses' => 'FrontendController@gallery']);
+
+Route::get(Setting::getUrlHome('site_url').'/contact', ['as' => 'frontend.contact', 'uses' => 'FrontendController@contact']);
+
+Route::get(Setting::getUrlHome('site_url').'/category/{category}', ['as' => 'frontend.category', 'uses' => 'FrontendController@category']);
+
+Route::get(Setting::getUrlHome('site_url').'/tag/{tag}', ['as' => 'frontend.tag', 'uses' => 'FrontendController@tag']);
 
 Auth::routes();
 

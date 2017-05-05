@@ -1,0 +1,116 @@
+//---------- ACCOUNT-SET ----------//
+.account-set {
+
+    .form-account {
+        .wr-form-account {
+            .title {
+                h1 {
+                    margin: 0px;
+                    font-family: 'Open Sans', sans-serif;
+                    font-weight: 400;
+                    font-size: 38px;
+                }
+                margin-bottom: 30px;
+            }
+            .body-form {
+                .middle {
+                    .change-pic {
+                        .picture {
+                            img {
+                                width: 220px;
+                                height: 220px;
+                            }
+                            width: 240px;
+                            height: 240px;
+                            margin: 0px auto 20px;
+                            border: 3px dashed $green;
+                            padding: 10px;
+                        }
+                        button {
+                            p {
+                                margin-bottom: 0px;
+                                font-size: 16px;
+                                font-weight: 600;
+                            }
+                            background-color: $green;
+                            color: $grey-body;
+                            border: none;
+                            -webkit-transition: .2s box-shadow ease-in;
+                            -moz-transition: .2s box-shadow ease-in;
+                            -ms-transition: .2s box-shadow ease-in;
+                            -o-transition: .2s box-shadow ease-in;
+                            transition: .2s box-shadow ease-in;
+                        }
+                        button:hover {
+                            box-shadow: $shadow-artikel;
+                        }
+                        margin-bottom: 30px;
+                    }
+                    .form {
+                        form {
+                            table {
+                                td {
+                                padding: 10px 15px;
+                                }
+                                input[type=text] {
+                                    color: $grey-text;
+                                }
+                                input[type=radio] {
+                                margin-right: 5px;
+                                }
+                                input[type=radio]#fmale {
+                                margin-left: 15px;
+                                }
+                                span {
+                                    color: $grey-text;
+                                }
+                                button#update {
+                                    p {
+                                        margin-bottom: 0px;
+                                        font-size: 16px;
+                                        font-weight: 600;
+                                    }
+                                color: $grey-body;
+                                border: 1px solid $green;
+                                background-color: $green;
+                                -webkit-transition: .2s box-shadow ease-in;
+                                -moz-transition: .2s box-shadow ease-in;
+                                -ms-transition: .2s box-shadow ease-in;
+                                -o-transition: .2s box-shadow ease-in;
+                                transition: .2s box-shadow ease-in;
+                                }
+                                button#update:hover {
+                                box-shadow: $shadow-artikel;
+                                }
+                                button#reset {
+                                    p {
+                                        margin-bottom: 0px;
+                                        font-size: 16px;
+                                        font-weight: 600;
+                                    }
+                                background-color: $yellow;
+                                border-color: $yellow;
+                                color: $grey-body;
+                                -webkit-transition: .2s box-shadow ease-in;
+                                -moz-transition: .2s box-shadow ease-in;
+                                -ms-transition: .2s box-shadow ease-in;
+                                -o-transition: .2s box-shadow ease-in;
+                                transition: .2s box-shadow ease-in;
+                                }
+                                button#reset:hover {
+                                box-shadow: $shadow-artikel;
+                                }
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+            padding: 30px 15px;
+            background-color: #fff;
+            box-shadow: $shadow-artikel;
+        }
+        margin-bottom: 50px;
+    }
+    padding-top: 130px;
+}

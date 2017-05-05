@@ -35,24 +35,24 @@ Route::group(['middleware'=>['web', 'auth'],'prefix' => 'dashboard'], function()
 				'uses' => 'Modules\Posts\Controllers\PostController@delete'
 			]);
 
-		Route::get('/{post}/trash', [
+		Route::get('/{post}/change/trash', [
 				'as' => 'dashboard.posts.changetrash',
 				'uses' => 'Modules\Posts\Controllers\PostController@changeTrash'
 			]);
 
 		Route::get('/published', [
 				'as' => 'dashboard.posts.published',
-				'uses' => 'Modules\Posts\Controllers\PostController@status'
+				'uses' => 'Modules\Posts\Controllers\PostController@published'
 			]);
 
 		Route::get('/draft', [
 				'as' => 'dashboard.posts.draft',
-				'uses' => 'Modules\Posts\Controllers\PostController@status'
+				'uses' => 'Modules\Posts\Controllers\PostController@draft'
 			]);
 
 		Route::get('/trash', [
 				'as' => 'dashboard.posts.trash',
-				'uses' => 'Modules\Posts\Controllers\PostController@status'
+				'uses' => 'Modules\Posts\Controllers\PostController@trash'
 			]);
 
 		Route::get('/search', [

@@ -1,0 +1,70 @@
+//---------- USER-PROFILE ----------//
+.user-profile {
+
+    .user-info {
+        .wr-user-info {
+            .title {
+                h1 {
+                    margin: 0px;
+                    font-family: 'Open Sans', sans-serif;
+                    font-weight: 400;
+                    font-size: 38px;
+                }
+                margin-bottom: 30px;
+            }
+            .content {
+                .user-pict {
+                    img {
+                        width: 150px;
+                        height: 150px;
+                        border-radius: 50%;
+                        background-color: #fff;
+                    }
+                    margin-bottom: 20px;
+                }
+                .info-detail {
+                    tr {
+                        td {
+                            p {
+                                margin-bottom: 0px;
+                                font-family: 'PT Serif', serif;
+                                font-weight: 700; 
+                                font-size: 16px;
+                                color: $dark-grey;
+                            }
+                            width: 250px;
+                            height: 50px;
+                            padding-left: 40px;
+                        }
+                    }
+                    margin: 0px auto 30px;
+                }
+                .editing {
+                    a {
+                        background-color: $green;
+                        color: $grey-body;
+                        font-family: 'Open Sans', sans-serif;
+                        font-size: 16px;
+                        font-weight: 700;
+                        padding: 10px 15px;
+                        border-radius: 5px;
+                        -webkit-transition: .2s box-shadow ease-in;
+                        -moz-transition: .2s box-shadow ease-in;
+                        -ms-transition: .2s box-shadow ease-in;
+                        -o-transition: .2s box-shadow ease-in;
+                        transition: .2s box-shadow ease-in;
+                    }
+                    a:hover {
+                        text-decoration: none;
+                        box-shadow: $shadow-artikel;
+                    }
+                }
+            }
+            background-color: #fff;
+            padding: 30px 15px;
+            box-shadow: $shadow-artikel;
+        }
+        margin-bottom: 50px;
+    }
+    padding-top: 130px;
+}

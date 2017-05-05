@@ -21,7 +21,7 @@ class CommentController extends Controller
 		$method_permission = "can_see_comments";
 		if(Auth::user()->hasRole('root') || Auth::user()->can($method_permission) ){
 
-			$comments = Comment::all();
+			$comments = Comment::paginate(10);
 			$commentCount = Comment::all();
 			return view('Comments::index',[
 				"comments" => $comments,
@@ -33,12 +33,63 @@ class CommentController extends Controller
         }
 	}
 
-	public function status(Request $request)
+	public function pending(Request $request)
 	{
 		$method_permission = "can_see_comments";
 		if(Auth::user()->hasRole('root') || Auth::user()->can($method_permission) ){
 
-			$comments = Comment::where('status', $request->segment(3))->get();
+			$comments = Comment::where('status', 'pending')->paginate(10);
+			$commentCount = Comment::all();
+			return view('Comments::index',[
+				"comments" => $comments,
+				"commentCount" => $commentCount
+			]);
+
+        }else{
+            return view('404');
+        }
+	}
+
+	public function approved(Request $request)
+	{
+		$method_permission = "can_see_comments";
+		if(Auth::user()->hasRole('root') || Auth::user()->can($method_permission) ){
+
+			$comments = Comment::where('status', 'approved')->paginate(10);
+			$commentCount = Comment::all();
+			return view('Comments::index',[
+				"comments" => $comments,
+				"commentCount" => $commentCount
+			]);
+
+        }else{
+            return view('404');
+        }
+	}
+
+	public function spam(Request $request)
+	{
+		$method_permission = "can_see_comments";
+		if(Auth::user()->hasRole('root') || Auth::user()->can($method_permission) ){
+
+			$comments = Comment::where('status', 'spam')->paginate(10);
+			$commentCount = Comment::all();
+			return view('Comments::index',[
+				"comments" => $comments,
+				"commentCount" => $commentCount
+			]);
+
+        }else{
+            return view('404');
+        }
+	}
+
+	public function bin(Request $request)
+	{
+		$method_permission = "can_see_comments";
+		if(Auth::user()->hasRole('root') || Auth::user()->can($method_permission) ){
+
+			$comments = Comment::where('status', 'bin')->paginate(10);
 			$commentCount = Comment::all();
 			return view('Comments::index',[
 				"comments" => $comments,
@@ -118,11 +169,19 @@ class CommentController extends Controller
 
 			$commentParent = Comment::find($request->id);
 
+			if ($commentParent->parent_id==null) {
+				$parentId = $request->id;
+			}
+			else
+			{
+				$parentId = $commentParent->parent_id;
+			}
+
 			Comment::create([	
 					"post_id" => $commentParent->post_id,
 					"author"  => Auth::user()->id,
 					"ip_address" => null,
-					"parent_id" => $request->id,
+					"parent_id" => $parentId,
 					"content" => $request->content,
 					"status" => "pending"
 				]);

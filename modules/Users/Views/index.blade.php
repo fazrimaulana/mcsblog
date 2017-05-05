@@ -159,6 +159,9 @@
                         
 
                     </table>
+
+                    {{ $users->render() }}
+
                     </div>
                 </div><!--END OF LIST-POST-->
                 

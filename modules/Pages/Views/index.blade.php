@@ -145,7 +145,7 @@
 
                                     @else
 
-                                        <a href="{{ url('/dashboard/pages/'.$post->id.'/trash') }}" style="color: red;">Trash</a> |
+                                        <a href="{{ url('/dashboard/pages/'.$post->id.'/change/trash') }}" style="color: red;">Trash</a> |
 
                                     @endif
                                     <a href="{{ url('/dashboard/pages/'.$post->id.'/detail') }}" >Detail</a>

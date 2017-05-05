@@ -30,6 +30,7 @@
                         }
                    }
                }
+               padding: 0px 15px;
             }
             height: auto;
         }
@@ -212,7 +213,6 @@
                                 font-size: 14px !important;
                                 padding: 10px !important;
                                 height: 40px !important; 
-                                width: 169px !important;
                             }
                         }
                     }
@@ -222,7 +222,7 @@
                     }
                     button {
                         p {
-                            font-size: 14px !important;
+                            font-size: 12px !important;
                         }
                     }
                 }
@@ -258,5 +258,237 @@
              }
         }
         padding-top: 130px !important;
+    }
+
+    //---------- ABOUT ----------//
+    .about-page {
+
+         //----------OUR-TEAM----------//
+         .information {
+             .wr-information {
+                 p {
+                    font-size: 14px !important;
+                 }
+                 h3 {
+                     font-size: 20px !important;
+                 }
+                 .title {
+                     h1 {
+                         font-size: 26px !important;
+                     }
+                 }
+                background-color: #fff;
+                padding: 30px 15px;
+                box-shadow: $shadow-artikel;
+             }
+             background-color: transparent !important;
+             padding: 0px 15px !important;
+             box-shadow: none !important;
+         }
+
+        //----------OUR-TEAM----------//
+        .our-team {
+            h1 {
+                font-size: 26px !important;
+            }
+            .content-slider {
+                .team-list {
+                    width: 400px !important;
+                    padding: 100px !important;
+                }
+                .bx-controls-direction {
+                    .prev-list, .next-list {
+                        visibility: hidden;
+                    }
+                }
+            }
+        }
+        padding-top: 130px !important;
+    }
+
+    //---------- GALLERY ----------//
+    .gallery {
+        .image {
+            .wr-image {
+                .title {
+                    h1 {
+                        font-size: 26px !important;
+                    }
+                }
+                .list-image {
+                    .photo {
+                        .wr-photo {
+                            img {
+                                height: 160px !important;
+                            }
+                        }
+                    }
+                }
+            }
+            padding: 0px 15px;
+        }
+    }
+
+    //---------- CONTACT US ----------//
+    .contact-us {
+        
+        //---------- MAP ----------//
+        .map {
+            .wr-map {
+                .map-detail {
+                    iframe {
+                        width: 354px !important;
+                        height: 200px;
+                    }
+                }
+                .info {
+                    p {
+                        font-size: 14px !important;
+                    }
+                    .address, .phone {
+                        margin-bottom: 20px;
+                    }
+                }
+            }
+        }
+
+        .form-contact {
+            .wr-form-contact {
+                .title {
+                    h1 {
+                        font-size: 26px !important;
+                    }
+                }
+                .form {
+                    .input-info {
+                        margin-bottom: 0px !important;
+                    }
+                    .name, .email, .phone {
+                        input {
+                            height: 30px !important;
+                        }
+                        margin-bottom: 10px;
+                    }
+                    .message {
+                        margin-bottom: 10px !important;
+                    }
+                    .submit-message {
+                        p {
+                            font-size: 12px !important;
+                        }
+                    }
+                }
+            }
+        }
+        padding: 0px 15px;
+    }
+
+    //---------- USER-PROFILE ----------//
+    .user-profile {
+
+        .user-info {
+            .wr-user-info {
+                .title {
+                    h1 {
+                        font-size: 26px !important;
+                    }
+                }
+                .content {
+                    .info-detail {
+                        tr {
+                            td{
+                                p {
+                                    font-size: 14px !important;
+                                }
+                                width: 250px !important;
+                                padding-left: 0px !important;
+                            }
+                        }
+                    }
+                    .editing {
+                        a {
+                            font-size: 12px !important;
+                        }
+                    }
+                }
+            }
+            padding: 0px 15px;
+        }
+    }
+
+    //---------- ACCOUNT-SET ----------//
+    .account-set {
+        .form-account {
+            .wr-form-account {
+                .title {
+                    h1 {
+                        font-size: 26px !important;
+                    }
+                }
+                .body-form {
+                    .middle {
+                        .change-pic {
+                            button {
+                                p {
+                                    font-size: 14px !important;
+                                }
+                            }
+                        }
+                        .form {
+                            form {
+                                table {
+                                    button#update, button#reset {
+                                        p {
+                                            font-size: 14px !important;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            padding: 0px 15px;
+        }
+    }
+
+    //---------- POST-CATEGORY ----------//
+    .post-category {
+        .heading-category {
+            .wr-heading-category {
+                h1 {
+                    font-size: 26px !important;
+                }
+            }
+        }
+        .artikel {
+            p {
+                font-size: 14px !important;
+            }
+            .title {
+                h1 {
+                    font-size: 26px !important;
+                }
+            }
+            .image {
+                img {
+                    height: 250px !important; 
+                }
+                height: 250px !important;
+            }
+            .artikel-footer {
+                .footer-left {
+                    p {
+                        line-height: 30px !important;
+                    }
+                }
+                .footer-right {
+                    p {
+                        line-height: 30px !important;
+                    }
+                }
+            }
+        }
+        padding: 0px 15px;
     }
 }
