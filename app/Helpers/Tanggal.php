@@ -16,4 +16,17 @@ class Tanggal
 
         return $result;
     }
+
+    public static function TanggalBulan($date)
+    {
+        $BulanIndo = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'];
+
+        $bulan = substr($date, 5, 2);
+        $tgl = substr($date, 8, 2);
+
+        $result = $tgl.' '.$BulanIndo[(int) $bulan - 1];
+
+        return $result;
+    }
+
 }

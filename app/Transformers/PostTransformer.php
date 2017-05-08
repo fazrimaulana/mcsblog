@@ -4,6 +4,7 @@ namespace App\Transformers;
 
 use Modules\Posts\Models\Post;
 use League\Fractal\TransformerAbstract;
+use App\Helpers\Tanggal;
 
 
 /**
@@ -23,6 +24,7 @@ class PostTransformer extends TransformerAbstract
 			'slug'   			=> $post->slug,
 			'content' 			=> $post->content,
 			'published_at' 		=> $post->published_at,
+			'format_date'		=> Tanggal::TanggalBulan($post->published_at),
 			'type' 				=> $post->type,
 			'status' 			=> $post->status,
 			'visible' 			=> $post->visible,

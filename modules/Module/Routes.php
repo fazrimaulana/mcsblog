@@ -20,6 +20,16 @@ Route::group(['middleware'=>['web', 'auth'],'prefix' => 'dashboard'], function()
 			'uses' => 'Modules\Module\Controllers\ModuleController@set_inactive'
 		]);
 
+		Route::post('/check/change/active', [
+			'as' => 'dashboard.module.active',
+			'uses' => 'Modules\Module\Controllers\ModuleController@setCheckedActive'
+		]);
+
+		Route::post('/check/change/inactive', [
+			'as' => 'dashboard.module.inactive',
+			'uses' => 'Modules\Module\Controllers\ModuleController@setCheckedInactive'
+		]);
+
 	});
 
 });

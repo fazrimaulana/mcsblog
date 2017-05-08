@@ -207,4 +207,32 @@ class ModuleController extends Controller
 		}
 	}
 
+	public function setCheckedActive(Request $request)
+	{
+		if ($request->ajax()) {
+			Module::whereIn('id', $request->idModules)->update([
+					"status" => "active"
+				]);
+		}
+		else
+		{
+			return view('404');
+		}
+	}
+
+	public function setCheckedInactive(Request $request)
+	{
+		if ($request->ajax()) {
+			
+			Module::whereIn('id', $request->idModules)->update([
+					"status" => "inactive"
+				]);
+
+		}
+		else
+		{
+			return view('404');
+		}
+	}
+
 }
