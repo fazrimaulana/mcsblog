@@ -38,7 +38,9 @@ class ModuleServiceProvider extends ServiceProvider
 
 				if (file_exists($moduleDir.'/'.$dirname.'/Routes.php')) 
 				{
-					include $moduleDir.'/'.$dirname.'/Routes.php';
+					// include $moduleDir.'/'.$dirname.'/Routes.php';
+					$this->loadRoutesFrom($moduleDir.'/'.$dirname.'/Routes.php');
+
 				}
 
 				if (is_dir($moduleDir.'/'.$dirname.'/Views')) 

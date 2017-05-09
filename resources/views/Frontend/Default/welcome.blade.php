@@ -40,7 +40,7 @@
                 <p><i class="fa fa-calendar" aria-hidden="true"></i> {{ App\Helpers\Tanggal::TanggalIndo($post->published_at) }}</p>
               </div>
               <div class="comment col-md-3 col-sm-4">
-                <p><i class="fa fa-comment-o" aria-hidden="true"></i> <a href="#">{{ $post->comments_count }} COMMENTS</a></p>
+                <p><i class="fa fa-comment-o" aria-hidden="true"></i> <a href="{{ url(Modules\Settings\Models\Setting::getUrlHome('site_url').'/read/'.$post->slug) }}">{{ $post->comments_count }} COMMENTS</a></p>
               </div>
               <div class="clearfix"></div>
             </div>

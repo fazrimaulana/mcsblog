@@ -89,6 +89,7 @@
 
                                     </div>
                                     <div class="modal-footer">
+                                        <a href="{{ url('/gallery/download/'.$media->id) }}" class="btn btn-primary">Download</a>
                                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                     </div>
                                 </div>

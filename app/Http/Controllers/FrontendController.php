@@ -13,6 +13,7 @@ use Auth;
 use Modules\Appearance\Models\Frontpage;
 use Modules\Posts\Models\Category;
 use Modules\Posts\Models\Tag;
+use App\Newsletter;
 
 class FrontendController extends Controller
 {
@@ -99,6 +100,11 @@ class FrontendController extends Controller
             ]);
     }
 
+    public function downloadGallery(Media $media)
+    {
+        return response()->download($media->url);
+    }
+
     public function contact()
     {
         $contact = Frontpage::where('name', 'contact')->first();
@@ -139,6 +145,14 @@ class FrontendController extends Controller
             "tagline"    => $tagline,
             "filter"     => $request->tag
         ]);
+    }
+
+    public function newsletter(Request $request)
+    {
+        Newsletter::create([
+                "email" => $request->email
+            ]);
+        return redirect()->back();
     }
 
 }

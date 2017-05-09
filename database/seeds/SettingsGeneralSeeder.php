@@ -49,7 +49,7 @@ class SettingsGeneralSeeder extends Seeder
 
         DB::table('settings')->insert([
                 "setting_name"  => "theme",
-                "setting_value" => "Default"
+                "setting_value" => "1"
             ]);
 
     }

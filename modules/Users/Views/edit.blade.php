@@ -1,4 +1,4 @@
-@extends('layouts.backend')
+@extends('layouts.Backend.backend')
 
 @section('css')
     
@@ -9,7 +9,7 @@
 <!-- HEADER-POST -->
     <div class="header-title">
         <h3>
-            <i class="fa fa-plus" aria-hidden="true"></i> Edit User
+            <i class="fa fa-edit" aria-hidden="true"></i> Edit User
         </h3>
     </div><!--END OF HEADER-POST-->
 

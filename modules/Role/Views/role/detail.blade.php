@@ -1,4 +1,4 @@
-@extends('layouts.backend')
+@extends('layouts.Backend.backend')
 
 @section('content')
         <!-- HEADER-POST -->

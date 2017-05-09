@@ -12,7 +12,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ str_replace('dashboard.','',Route::currentRouteName()) }}-{{ Modules\Settings\Models\Setting::getUrlHome('site_title') }}</title>
+    <title>{{ title_case( str_replace('dashboard.','',Route::currentRouteName()) ) }}-{{ Modules\Settings\Models\Setting::getUrlHome('site_title') }}</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="{{ url('/backend/css/bootstrap.min.css') }}" rel="stylesheet">

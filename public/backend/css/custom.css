@@ -1603,11 +1603,29 @@ html, body, .container {
       color: #808B9C; }
   .content-gallery .gallery .body-gallery .image {
     margin-bottom: 20px;
-    text-align: center;
     padding: 0px 10px; }
     .content-gallery .gallery .body-gallery .image img {
-      width: 205px;
-      height: 205px; }
+      width: 231.25px;
+      height: 225px; }
+    .content-gallery .gallery .body-gallery .image .footer-img {
+      background-color: #eaeaea; }
+      .content-gallery .gallery .body-gallery .image .footer-img .name-img {
+        padding: 17px 12px; }
+        .content-gallery .gallery .body-gallery .image .footer-img .name-img p {
+          margin-bottom: 0px; }
+      .content-gallery .gallery .body-gallery .image .footer-img .btn-active {
+        padding: 10px; }
+        .content-gallery .gallery .body-gallery .image .footer-img .btn-active button {
+          background-color: #48cfad;
+          color: #fff; }
+        .content-gallery .gallery .body-gallery .image .footer-img .btn-active button:hover {
+          background-color: rgba(72, 207, 173, 0.7);
+          color: #fff; }
+    .content-gallery .gallery .body-gallery .image .active {
+      background-color: #313E4B;
+      color: #fff; }
+      .content-gallery .gallery .body-gallery .image .active .btn-active {
+        background-color: #485868; }
 
 .eror h2, .eror h4, .eror p {
   color: #eaeaea; }

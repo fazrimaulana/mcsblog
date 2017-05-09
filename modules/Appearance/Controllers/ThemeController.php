@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use Auth;
+use Modules\Settings\Models\Theme;
 
 class ThemeController extends Controller
 {
@@ -19,7 +20,10 @@ class ThemeController extends Controller
 		$method_permission = "can_see_appearance_themes";
 		if(Auth::user()->hasRole('root') || Auth::user()->can($method_permission) ){
 
-			return view('Appearance::themes.index');
+			$themes = Theme::all();
+			return view('Appearance::themes.index',[
+					"themes" => $themes
+				]);
 
         }else{
             return view('404');

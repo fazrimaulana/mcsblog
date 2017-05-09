@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
         $this->call(FrontpageTableSeeder::class);
         $this->call(PostTableSeeder::class);
         $this->call(PageTableSeeder::class);
+        $this->call(ThemesTableSeeder::class);
 
     }
 }

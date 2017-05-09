@@ -23,6 +23,7 @@ class PostTransformer extends TransformerAbstract
 			'title'  			=> $post->title,
 			'slug'   			=> $post->slug,
 			'content' 			=> $post->content,
+			'post_ex'			=> substr($post->content, 0, 120),
 			'published_at' 		=> $post->published_at,
 			'format_date'		=> Tanggal::TanggalBulan($post->published_at),
 			'type' 				=> $post->type,

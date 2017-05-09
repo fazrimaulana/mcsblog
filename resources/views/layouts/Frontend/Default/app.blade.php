@@ -217,13 +217,16 @@
 
         <div class="features-right col-md-3 col-sm-3 col-xs-12">
           <div class="newsletter">
+            <form action="{{ url('/newsletter') }}" method="post">
+            {{ csrf_field() }}
             <div class="title">
               <h3>NEWSLETTER</h3>
             </div>
             <div class="input">
-              <input type="text" class="form-control" placeholder="Write an email...">
-              <button class="btn btn-block"><p>SEND</p></button>
+              <input type="email" class="form-control" name="email" placeholder="Write an email...">
+              <button type="submit" class="btn btn-block"><p>SEND</p></button>
             </div>
+            </form>
           </div><!--END OF .NEWSLETTER-->
 
           <div class="tags">

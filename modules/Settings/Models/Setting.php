@@ -5,6 +5,7 @@ namespace Modules\Settings\Models;
 use Illuminate\Database\Eloquent\Model;
 
 use DB;
+use Modules\Settings\Models\Theme;
 
 class Setting extends Model
 {
@@ -34,7 +35,15 @@ class Setting extends Model
 	public static function getTheme($theme)
 	{
 		$setting = Self::getData($theme);
-		return str_slug(title_case($setting), '-');
+		$nameTheme = Theme::find($setting);
+		return title_case(str_slug($nameTheme->name, '-'));
+	}
+
+	public static function getThemeId($theme)
+	{
+		$setting = Self::getData($theme);
+		$idTheme = Theme::find($setting);
+		return $idTheme->id;
 	}
 
 }
