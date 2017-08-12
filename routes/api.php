@@ -28,7 +28,7 @@ Route::middleware('auth:api')->get('/pages', 'ApiController@pages');
 //media
 Route::middleware('auth:api')->get('/medias', 'ApiController@medias');
 
-//media
+//comment
 Route::middleware('auth:api')->get('/comments', 'ApiController@comments');
 
 //users

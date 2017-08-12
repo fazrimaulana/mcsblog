@@ -168,16 +168,16 @@
             <div class="sosmed">
               <ul class="nav nav-pills">
                 <li role="presentation">
-                  <a href="#"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a>
+                  <a href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a>
                 </li>
                 <li role="presentation">
-                  <a href="#"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a>
+                  <a href="https://twitter.com" target="_blank"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a>
                 </li>
                 <li role="presentation">
-                  <a href="#"><i class="fa fa-instagram fa-lg" aria-hidden="true"></i></a>
+                  <a href="https://www.instagram.com" target="_blank"><i class="fa fa-instagram fa-lg" aria-hidden="true"></i></a>
                 </li>
                 <li role="presentation">
-                  <a href="#"><i class="fa fa-youtube fa-lg" aria-hidden="true"></i></a>
+                  <a href="https://www.youtube.com/" target="_blank"><i class="fa fa-youtube fa-lg" aria-hidden="true"></i></a>
                 </li>
               </ul>
             </div><!--END OF .SOSMED-->

@@ -29,7 +29,7 @@ class HomeController extends Controller
         $posts = Post::where('type', 'post')->get();
         $comments = Comment::all();
         $pages = Post::where('type', 'page')->get();
-        return view('home', [
+        return view('Backend.home', [
                 "posts" => $posts,
                 "comments" => $comments,
                 "pages" => $pages

@@ -42,6 +42,7 @@
 
                     <br><br>
                     <div class="table-responsive">
+                    <form id="action">
                     <table class="table table-consered table-hover table-bordered">
                     	<thead>
                     		<tr>
@@ -63,7 +64,6 @@
                             @foreach($categoriesParent as $key => $category)
                     			<tr>
                                     <td>
-                                        <form id="action">
                                             @if($category->name!="none")
                                             <input type="checkbox" name="check_action" value="{{ $category->id }}" class="check">
                                             @endif
@@ -107,11 +107,10 @@
                                     </tr>
 
                                 @endforeach
-                                </form>
                     		@endforeach
                     	</tbody>
                     </table>
-
+                    </form>
                     {{ $categories->render() }}
 
                     </div>
